@@ -6,19 +6,19 @@
   <title>Peiying Ma · Architecture & UI/UX Portfolio</title>
   <meta name="description" content="Peiying Ma — Cross-disciplinary designer blending architecture and digital user experience." />
   <style>
-    /* 核心布局修复 START */
+    /* 核心布局修复：分离关键的 Flex 规则，确保浏览器解析 */
     header {
-        display: flex; /* 强制布局规则 */
+        display: flex; 
         justify-content: space-between;
         align-items: center;
         gap: 16px;
     }
     .brand {
-        display: flex; /* 确保头像和文字并排 */
+        display: flex;
         align-items: center;
         gap: 14px;
     }
-    /* 核心布局修复 END */
+    /* 其他所有 CSS 规则（颜色已硬编码）*/
     *{box-sizing:border-box}
     html,body{
         height:100%;
@@ -86,7 +86,7 @@
         <a class="navlink" href="#contact">Contact</a>
       </nav>
     </header>
-    <main class="hero">
+        <main class="hero">
       <div class="hero-card">
         <h1>Cross-Disciplinary Designer: Architecture, UI/UX, and Interaction</h1>
         <p class="lead">
@@ -129,4 +129,106 @@
           <strong>Email</strong>
           <div style="color:#6b7280;margin-left:6px">peiying@example.com</div>
         </div>
-        <div style="margin-top:10px;color:#6b72
+        <div style="margin-top:10px;color:#6b7280;font-size:13px">I welcome collaboration! Feel free to send me a short note—I reply personally.</div>
+      </div>
+    </section>
+        <section id="projects">
+      <div class="card" style="margin-top:18px;" data-reveal>
+        <h3>Portfolio Categories</h3>
+        <div class="projects" style="margin-top:10px">
+          <div class="proj" onclick="openProject('#about')">
+            <div>
+              <div class="project-title">Architecture & Design Portfolio</div>
+              <div class="project-desc">Residential, public spaces, and parametric design proposals.</div>
+            </div>
+            <div style="font-size:13px;color:#6b7280">→</div>
+          </div>
+          <div class="proj" onclick="openProject('#projects')">
+            <div>
+              <div class="project-title">Master’s Coursework Projects</div>
+              <div class="project-desc">Advanced modeling, sustainability studies, and academic reports.</div>
+            </div>
+            <div style="font-size:13px;color:#6b7280">→</div>
+          </div>
+          <div class="proj" onclick="openProject('#contact')">
+            <div>
+              <div class="project-title">UI/UX Design Explorations</div>
+              <div class="project-desc">App/website prototypes, user flow maps, and wireframing.</div>
+            </div>
+            <div style="font-size:13px;color:#6b7280">→</div>
+          </div>
+          <div class="proj" onclick="openProject('#contact')">
+            <div>
+              <div class="project-title">Game/Interactive Media</div>
+              <div class="project-desc">Game prototypes, interactive storytelling, and level design sketches.</div>
+            </div>
+            <div style="font-size:13px;color:#6b7280">→</div>
+          </div>
+        </div>
+      </div>
+    </section>
+        <section style="margin-top:22px" id="contact">
+      <div class="card" data-reveal>
+        <h3>Get in Touch</h3>
+        <p style="color:#6b7280;">Shoot me an email at <a href="mailto:peiying@example.com">peiying@example.com</a> or leave a short message below.</p>
+        <form onsubmit="handleSubmit(event)" style="margin-top:12px;display:flex;flex-direction:column;gap:10px">
+          <input name="name" placeholder="Your name" required style="padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)">
+          <input name="email" placeholder="Your email" required style="padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)">
+          <textarea name="message" placeholder="Message" rows="4" style="padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)"></textarea>
+          <button class="btn" type="submit">Send</button>
+          <div id="formMsg" style="color:#6b7280;font-size:13px"></div>
+        </form>
+      </div>
+    </section>
+    <footer style="margin-top:28px;text-align:center;color:#6b7280;font-size:13px">© <span id="year"></span> Peiying · Built with ❤️</footer>
+  </div>
+  <div class="cursor-orb" id="orb"></div>
+  <script>
+    window.addEventListener('load', function() {
+        const loader = document.getElementById('loader');
+        if (loader) {
+            loader.style.transition = 'opacity 0.6s ease';
+            loader.style.opacity = '0';
+            
+            // 使用兼容性更好的方法移除预加载动画
+            setTimeout(() => {
+                if (loader.parentNode) {
+                    loader.parentNode.removeChild(loader);
+                }
+            }, 600); 
+        }
+        document.getElementById('year').textContent = new Date().getFullYear();
+        const reveals = document.querySelectorAll('[data-reveal]');
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('revealed');
+                    io.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        reveals.forEach(r => io.observe(r));
+        const orb = document.getElementById('orb');
+        let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            orb.style.opacity = 1;
+            orb.style.transform = 'translate(' + (mouseX - orb.offsetWidth / 2) + 'px, ' + (mouseY - orb.offsetHeight / 2) + 'px) scale(1)';
+        });
+    });
+    
+    function openProject(hash){
+      location.hash = hash;
+      const el = document.querySelector(hash);
+      if(el) el.scrollIntoView({behavior:'smooth',block:'center'});
+    }
+    function handleSubmit(e){
+      e.preventDefault();
+      document.getElementById('formMsg').textContent = 'Message sent (simulated). For real email reception, please set up Formspree / Netlify Forms.';
+      e.target.reset();
+    }
+    window.addEventListener('keydown', (e)=>{ if(e.key === 'k') openProject('#projects'); });
+  </script>
+</body>
+</html>
