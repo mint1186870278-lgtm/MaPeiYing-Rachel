@@ -6,38 +6,42 @@
   <title>Peiying Ma · Architecture & UI/UX Portfolio</title>
   <meta name="description" content="Peiying Ma — Cross-disciplinary designer blending architecture and digital user experience." />
   <style>
-    /* 移除变量定义，直接使用颜色硬编码，防止子路径问题导致 CSS 失败 */
+    /* 核心布局修复 START */
+    header {
+        display: flex; /* 强制布局规则 */
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+    }
+    .brand {
+        display: flex; /* 确保头像和文字并排 */
+        align-items: center;
+        gap: 14px;
+    }
+    /* 核心布局修复 END */
     *{box-sizing:border-box}
     html,body{
         height:100%;
         margin:0;
         font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
         -webkit-font-smoothing:antialiased;
-        /* 修复：直接使用颜色值 */
         background:linear-gradient(180deg, #6a4cff 0%, #ffffff 100%); 
         color:#111827
     }
     a{color:inherit}
     .wrap{max-width:1100px;margin:48px auto;padding:28px}
-    header{display:flex;justify-content:space-between;align-items:center;gap:16px}
-    .brand{display:flex;align-items:center;gap:14px}
-    /* 修复：直接使用颜色值 */
-    .avatar{width:64px;height:64px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;color:white;background:linear-gradient(135deg,#8b5cf6,#4f46e5);box-shadow:0 8px 30px rgba(79,70,229,0.24);transform:translateZ(0);}
     nav{display:flex;gap:12px;align-items:center}
     .navlink{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.12);backdrop-filter:blur(6px);cursor:pointer;transition:transform .25s ease,box-shadow .25s}
     .navlink:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.12)}
     .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;margin-top:28px}
     .hero-card{padding:36px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.73));box-shadow: 0 10px 30px rgba(15,23,42,0.08);}
     h1{margin:0;font-size:28px;letter-spacing:-0.02em}
-    /* 修复：直接使用颜色值 */
     .lead{margin-top:12px;color:#6b7280;line-height:1.6}
     .cta{margin-top:18px;display:flex;gap:12px}
-    /* 修复：直接使用颜色值 */
     .btn{padding:10px 14px;border-radius:12px;background:linear-gradient(90deg,#8b5cf6,#6d28d9);color:white;border:none;cursor:pointer;box-shadow:0 10px 30px rgba(99,102,241,0.16);transition:transform .18s}
     .btn:active{transform:translateY(2px)}
     .ghost{background:transparent;border:1px solid rgba(17,24,39,0.06);color:#111827}
     .profile{padding:20px;border-radius:14px;background:rgba(255,255,255,0.5);backdrop-filter:blur(8px)}
-    /* 修复：直接使用颜色值 */
     .info{font-size:13px;color:#6b7280;margin-top:10px}
     section{margin-top:36px}
     .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
@@ -48,7 +52,6 @@
     .proj{display:flex;align-items:center;justify-content:space-between;padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));border: 1px solid rgba(0,0,0,0.08); cursor:pointer;transition:transform .35s cubic-bezier(.2,.9,.2,1),box-shadow .35s}
     .proj:hover{transform: translateY(-2px);box-shadow: 0 12px 30px rgba(99,102,241,0.1);}
     .project-title{font-weight:700}
-    /* 修复：直接使用颜色值 */
     .project-desc{font-size:13px;color:#6b7280}
     .contact-line{display:flex;gap:12px;align-items:center}
     .cursor-orb{position:fixed;left:50%;top:50%;width:38px;height:38px;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%) scale(.6);mix-blend-mode:screen;filter:blur(10px);opacity:.9;background:radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(139,92,246,0.9) 40%, rgba(139,92,246,0.14) 70%);transition:transform .12s linear}
@@ -83,7 +86,7 @@
         <a class="navlink" href="#contact">Contact</a>
       </nav>
     </header>
-        <main class="hero">
+    <main class="hero">
       <div class="hero-card">
         <h1>Cross-Disciplinary Designer: Architecture, UI/UX, and Interaction</h1>
         <p class="lead">
@@ -126,113 +129,4 @@
           <strong>Email</strong>
           <div style="color:#6b7280;margin-left:6px">peiying@example.com</div>
         </div>
-        <div style="margin-top:10px;color:#6b7280;font-size:13px">I welcome collaboration! Feel free to send me a short note—I reply personally.</div>
-      </div>
-    </section>
-        <section id="projects">
-      <div class="card" style="margin-top:18px;" data-reveal>
-        <h3>Portfolio Categories</h3>
-        <div class="projects" style="margin-top:10px">
-          <div class="proj" onclick="openProject('#about')">
-            <div>
-              <div class="project-title">Architecture & Design Portfolio</div>
-              <div class="project-desc">Residential, public spaces, and parametric design proposals.</div>
-            </div>
-            <div style="font-size:13px;color:#6b7280">→</div>
-          </div>
-          <div class="proj" onclick="openProject('#projects')">
-            <div>
-              <div class="project-title">Master’s Coursework Projects</div>
-              <div class="project-desc">Advanced modeling, sustainability studies, and academic reports.</div>
-            </div>
-            <div style="font-size:13px;color:#6b7280">→</div>
-          </div>
-          <div class="proj" onclick="openProject('#contact')">
-            <div>
-              <div class="project-title">UI/UX Design Explorations</div>
-              <div class="project-desc">App/website prototypes, user flow maps, and wireframing.</div>
-            </div>
-            <div style="font-size:13px;color:#6b7280">→</div>
-          </div>
-          <div class="proj" onclick="openProject('#contact')">
-            <div>
-              <div class="project-title">Game/Interactive Media</div>
-              <div class="project-desc">Game prototypes, interactive storytelling, and level design sketches.</div>
-            </div>
-            <div style="font-size:13px;color:#6b7280">→</div>
-          </div>
-        </div>
-      </div>
-    </section>
-        <section style="margin-top:22px" id="contact">
-      <div class="card" data-reveal>
-        <h3>Get in Touch</h3>
-        <p style="color:#6b7280;">Shoot me an email at <a href="mailto:peiying@example.com">peiying@example.com</a> or leave a short message below.</p>
-        <form onsubmit="handleSubmit(event)" style="margin-top:12px;display:flex;flex-direction:column;gap:10px">
-          <input name="name" placeholder="Your name" required style="padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)">
-          <input name="email" placeholder="Your email" required style="padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)">
-          <textarea name="message" placeholder="Message" rows="4" style="padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)"></textarea>
-          <button class="btn" type="submit">Send</button>
-          <div id="formMsg" style="color:#6b7280;font-size:13px"></div>
-        </form>
-      </div>
-    </section>
-    <footer style="margin-top:28px;text-align:center;color:#6b7280;font-size:13px">© <span id="year"></span> Peiying · Built with ❤️</footer>
-  </div>
-  <div class="cursor-orb" id="orb"></div>
-  <script>
-    // 基础路径变量
-    const BASE_PATH = "/MaPeiYing-Rachel"; // 修复子路径问题
-
-    window.addEventListener('load', function() {
-        // 1. Preloader
-        const loader = document.getElementById('loader');
-        if (loader) {
-            loader.style.transition = 'opacity 0.6s ease';
-            loader.style.opacity = '0';
-            setTimeout(() => loader.remove(), 600);
-        }
-        // 2. Footer Year
-        document.getElementById('year').textContent = new Date().getFullYear();
-        
-        // 3. Scroll Reveal
-        const reveals = document.querySelectorAll('[data-reveal]');
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    e.target.classList.add('revealed');
-                    io.unobserve(e.target);
-                }
-            });
-        }, { threshold: 0.15 });
-        reveals.forEach(r => io.observe(r));
-
-        // 4. Cursor Orb
-        const orb = document.getElementById('orb');
-        let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
-        window.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            orb.style.opacity = 1;
-            orb.style.transform = 'translate(' + (mouseX - orb.offsetWidth / 2) + 'px, ' + (mouseY - orb.offsetHeight / 2) + 'px) scale(1)';
-        });
-    });
-    
-    // Project click handler (demo)
-    function openProject(hash){
-      location.hash = hash;
-      const el = document.querySelector(hash);
-      if(el) el.scrollIntoView({behavior:'smooth',block:'center'});
-    }
-    
-    // Form placeholder
-    function handleSubmit(e){
-      e.preventDefault();
-      document.getElementById('formMsg').textContent = 'Message sent (simulated). For real email reception, please set up Formspree / Netlify Forms.';
-      e.target.reset();
-    }
-    
-    window.addEventListener('keydown', (e)=>{ if(e.key === 'k') openProject('#projects'); });
-  </script>
-</body>
-</html>
+        <div style="margin-top:10px;color:#6b72
