@@ -53,17 +53,7 @@
   </style>
 </head>
 <body>
-  <div id="loader" style="position:fixed;top:0;left:0;width:100%;height:100%;background: linear-gradient(180deg,#6a4cff,#ffffff);display:flex;align-items:center;justify-content:center;z-index:9999;">
-  <div style="width:60px;height:60px;border-radius:50%;background:radial-gradient(circle,#fff,#8b5cf6);animation:spinPulse 1.2s infinite ease-in-out;box-shadow:0 0 20px rgba(139,92,246,0.6);"></div>
-</div>
-<style>
-@keyframes spinPulse {
-  0% { transform: scale(0.7) rotate(0deg); opacity:0.7; }
-  50% { transform: scale(1) rotate(180deg); opacity:1; }
-  100% { transform: scale(0.7) rotate(360deg); opacity:0.7; }
-}
-</style>
-  <div class="wrap" style="max-width:1100px;margin:48px auto;padding:28px;">
+    <div class="wrap" style="max-width:1100px;margin:48px auto;padding:28px;">
         <header style="display: flex; justify-content: space-between; align-items: center; gap: 16px;">
             <div class="brand" style="display: flex; align-items: center; gap: 14px;">
         <div class="avatar">PM</div>
@@ -177,18 +167,7 @@
   <div class="cursor-orb" id="orb"></div>
   <script>
     window.addEventListener('load', function() {
-        const loader = document.getElementById('loader');
-        if (loader) {
-            loader.style.transition = 'opacity 0.6s ease';
-            loader.style.opacity = '0';
-            
-            // 确保移除预加载动画 (兼容性修复)
-            setTimeout(() => {
-                if (loader.parentNode) {
-                    loader.parentNode.removeChild(loader);
-                }
-            }, 600); 
-        }
+        // 已移除 Preloader 逻辑
         document.getElementById('year').textContent = new Date().getFullYear();
         const reveals = document.querySelectorAll('[data-reveal]');
         const io = new IntersectionObserver((entries) => {
@@ -217,4 +196,10 @@
     }
     function handleSubmit(e){
       e.preventDefault();
-      document.getElementById('formMsg').textContent = '
+      document.getElementById('formMsg').textContent = 'Message sent (simulated). For real email reception, please set up Formspree / Netlify Forms.';
+      e.target.reset();
+    }
+    window.addEventListener('keydown', (e)=>{ if(e.key === 'k') openProject('#projects'); });
+  </script>
+</body>
+</html>
