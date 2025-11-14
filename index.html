@@ -1,266 +1,426 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Peiying · Interactive Portfolio</title>
-  <meta name="description" content="Peiying — UI/UX designer blending architecture and digital experience." />
-  <style>
-    /* Base & variables */
-    :root{
-      --bg1: #6a4cff; /* purple */
-      --bg2: #ffffff; /* white */
-      --card: rgba(255,255,255,0.9);
-      --glass: rgba(255,255,255,0.06);
-      --text: #111827;
-      --muted: #6b7280;
-      --accent: #8b5cf6;
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title data-i18n="title">Peiying Ma · 建筑与UI/UX作品集</title>
+  <meta name="description" data-i18n="meta_description" content="Peiying Ma — 跨学科设计师，融合建筑设计与数字用户体验。" />
+  <style>
+    /* Base & variables */
+    :root{
+      --bg1: #6a4cff; /* purple */
+      --bg2: #ffffff; /* white */
+      --card: rgba(255,255,255,0.9);
+      --glass: rgba(255,255,255,0.06);
+      --text: #111827;
+      --muted: #6b7280;
+      --accent: #8b5cf6;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial; -webkit-font-smoothing:antialiased;background:linear-gradient(180deg,var(--bg1) 0%, #bfa7ff 40%, var(--bg2) 100%);color:var(--text)}
+    a{color:inherit}
+
+    /* layout */
+    .wrap{max-width:1100px;margin:48px auto;padding:28px}
+    header{display:flex;justify-content:space-between;align-items:center;gap:16px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .avatar{width:64px;height:64px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;color:white;background:linear-gradient(135deg,var(--accent),#4f46e5);box-shadow:0 8px 30px rgba(79,70,229,0.24);transform:translateZ(0);}
+    nav{display:flex;gap:12px;align-items:center}
+    /* 语言切换按钮样式 */
+    .lang-switcher { font-weight: 600; font-size: 14px; padding: 8px 12px; border-radius: 999px; background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(6px); cursor: pointer; }
+    .lang-switcher span { cursor: pointer; padding: 0 4px; transition: color 0.2s; }
+    .lang-switcher .active { color: var(--accent); }
+    .lang-switcher .inactive { color: var(--text); opacity: 0.6; }
+
+
+    .navlink{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.12);backdrop-filter:blur(6px);cursor:pointer;transition:transform .25s ease,box-shadow .25s}
+    .navlink:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.12)}
+
+    /* hero */
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;margin-top:28px}
+    .hero-card{padding:36px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.73));
+        /* 优化阴影 */
+        box-shadow: 0 10px 30px rgba(15,23,42,0.08);
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial; -webkit-font-smoothing:antialiased;background:linear-gradient(180deg,var(--bg1) 0%, #bfa7ff 40%, var(--bg2) 100%);color:var(--text)}
-    a{color:inherit}
+    h1{margin:0;font-size:28px;letter-spacing:-0.02em}
+    .lead{margin-top:12px;color:var(--muted);line-height:1.6}
+    .cta{margin-top:18px;display:flex;gap:12px}
+    .btn{padding:10px 14px;border-radius:12px;background:linear-gradient(90deg,var(--accent),#6d28d9);color:white;border:none;cursor:pointer;box-shadow:0 10px 30px rgba(99,102,241,0.16);transition:transform .18s}
+    .btn:active{transform:translateY(2px)}
+    .ghost{background:transparent;border:1px solid rgba(17,24,39,0.06);color:var(--text)}
 
-    /* layout */
-    .wrap{max-width:1100px;margin:48px auto;padding:28px}
-    header{display:flex;justify-content:space-between;align-items:center;gap:16px}
-    .brand{display:flex;align-items:center;gap:14px}
-    .avatar{width:64px;height:64px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;color:white;background:linear-gradient(135deg,var(--accent),#4f46e5);box-shadow:0 8px 30px rgba(79,70,229,0.24);transform:translateZ(0);}
-    nav{display:flex;gap:12px;align-items:center}
-    .navlink{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.12);backdrop-filter:blur(6px);cursor:pointer;transition:transform .25s ease,box-shadow .25s}
-    .navlink:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.12)}
+    /* right panel */
+    .profile{padding:20px;border-radius:14px;background:rgba(255,255,255,0.5);backdrop-filter:blur(8px)}
+    .info{font-size:13px;color:var(--muted);margin-top:10px}
 
-    /* hero */
-    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;margin-top:28px}
-    .hero-card{padding:36px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.73));box-shadow:0 12px 40px rgba(15,23,42,0.12)}
-    h1{margin:0;font-size:28px;letter-spacing:-0.02em}
-    .lead{margin-top:12px;color:var(--muted);line-height:1.6}
-    .cta{margin-top:18px;display:flex;gap:12px}
-    .btn{padding:10px 14px;border-radius:12px;background:linear-gradient(90deg,var(--accent),#6d28d9);color:white;border:none;cursor:pointer;box-shadow:0 10px 30px rgba(99,102,241,0.16);transition:transform .18s}
-    .btn:active{transform:translateY(2px)}
-    .ghost{background:transparent;border:1px solid rgba(17,24,39,0.06);color:var(--text)}
+    /* sections */
+    section{margin-top:36px}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+    .col-8{grid-column:span 8}
+    .col-4{grid-column:span 4}
 
-    /* right panel */
-    .profile{padding:20px;border-radius:14px;background:rgba(255,255,255,0.5);backdrop-filter:blur(8px)}
-    .info{font-size:13px;color:var(--muted);margin-top:10px}
+    .card{padding:20px;border-radius:14px;background:rgba(255,255,255,0.86);
+        /* 优化阴影 */
+        box-shadow: 0 8px 20px rgba(2,6,23,0.04);
+        opacity:0;transform:translateY(18px) scale(.995);transition:opacity .7s ease, transform .7s ease}
+    .card.revealed{opacity:1;transform:translateY(0) scale(1)}
 
-    /* sections */
-    section{margin-top:36px}
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
-    .col-8{grid-column:span 8}
-    .col-4{grid-column:span 4}
-
-    .card{padding:20px;border-radius:14px;background:rgba(255,255,255,0.86);box-shadow:0 10px 30px rgba(2,6,23,0.06);opacity:0;transform:translateY(18px) scale(.995);transition:opacity .7s ease, transform .7s ease}
-    .card.revealed{opacity:1;transform:translateY(0) scale(1)}
-
-    .projects{display:flex;flex-direction:column;gap:14px}
-    .proj{display:flex;align-items:center;justify-content:space-between;padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));border:1px solid rgba(0,0,0,0.04);cursor:pointer;transition:transform .35s cubic-bezier(.2,.9,.2,1),box-shadow .35s}
-    .proj:hover{transform:translateX(8px) translateY(-4px);box-shadow:0 18px 40px rgba(99,102,241,0.12)}
-
-    .project-title{font-weight:700}
-    .project-desc{font-size:13px;color:var(--muted)}
-
-    /* contact */
-    .contact-line{display:flex;gap:12px;align-items:center}
-
-    /* parallax cursor little orb */
-    .cursor-orb{position:fixed;left:50%;top:50%;width:38px;height:38px;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%) scale(.6);mix-blend-mode:screen;filter:blur(10px);opacity:.9;background:radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(139,92,246,0.9) 40%, rgba(139,92,246,0.14) 70%);transition:transform .12s linear}
-
-    /* small responsive */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr;}
-      .grid{grid-template-columns:repeat(6,1fr)}
-      .col-8{grid-column:span 6}
-      .col-4{grid-column:span 6}
+    .projects{display:flex;flex-direction:column;gap:14px}
+    .proj{display:flex;align-items:center;justify-content:space-between;padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));
+        /* 增加边框 */
+        border: 1px solid rgba(0,0,0,0.08); 
+        cursor:pointer;transition:transform .35s cubic-bezier(.2,.9,.2,1),box-shadow .35s}
+    .proj:hover{
+        /* 优化悬停效果 */
+        transform: translateY(-2px);
+        box-shadow: 0 12px 30px rgba(99,102,241,0.1);
     }
-  </style>
+
+    .project-title{font-weight:700}
+    .project-desc{font-size:13px;color:var(--muted)}
+
+    /* contact */
+    .contact-line{display:flex;gap:12px;align-items:center}
+
+    /* parallax cursor little orb */
+    .cursor-orb{position:fixed;left:50%;top:50%;width:38px;height:38px;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%) scale(.6);mix-blend-mode:screen;filter:blur(10px);opacity:.9;background:radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(139,92,246,0.9) 40%, rgba(139,92,246,0.14) 70%);transition:transform .12s linear}
+
+    /* small responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;}
+      .grid{grid-template-columns:repeat(6,1fr)}
+      .col-8{grid-column:span 6}
+      .col-4{grid-column:span 6}
+    }
+  </style>
 </head>
 <body>
-  <!-- 加在 <body> 内最前面 -->
-<div id="loader" style="
-  position:fixed;top:0;left:0;width:100%;height:100%;
-  background: linear-gradient(180deg,#6a4cff,#ffffff);
-  display:flex;align-items:center;justify-content:center;
-  z-index:9999;
+  <div id="loader" style="
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  background: linear-gradient(180deg,#6a4cff,#ffffff);
+  display:flex;align-items:center;justify-content:center;
+  z-index:9999;
 ">
-  <div style="
-    width:60px;height:60px;
-    border-radius:50%;
-    background:radial-gradient(circle,#fff,#8b5cf6);
-    animation:spinPulse 1.2s infinite ease-in-out;
-    box-shadow:0 0 20px rgba(139,92,246,0.6);
-  "></div>
+  <div style="
+    width:60px;height:60px;
+    border-radius:50%;
+    background:radial-gradient(circle,#fff,#8b5cf6);
+    animation:spinPulse 1.2s infinite ease-in-out;
+    box-shadow:0 0 20px rgba(139,92,246,0.6);
+  "></div>
 </div>
 
 <style>
 @keyframes spinPulse {
-  0% { transform: scale(0.7) rotate(0deg); opacity:0.7; }
-  50% { transform: scale(1) rotate(180deg); opacity:1; }
-  100% { transform: scale(0.7) rotate(360deg); opacity:0.7; }
+  0% { transform: scale(0.7) rotate(0deg); opacity:0.7; }
+  50% { transform: scale(1) rotate(180deg); opacity:1; }
+  100% { transform: scale(0.7) rotate(360deg); opacity:0.7; }
 }
 </style>
 
-<script>
-window.addEventListener('load', ()=>{
-  const loader = document.getElementById('loader');
-  loader.style.transition = 'opacity 0.6s ease';
-  loader.style.opacity = '0';
-  setTimeout(()=>loader.remove(), 600);
-});
-</script>
-
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="avatar">PM</div>
-        <div>
-          <div style="font-weight:700">Peiying Ma</div>
-          <div style="font-size:13px;color:var(--muted)">Product Designer · UI/UX</div>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="avatar">PM</div>
+        <div>
+          <div style="font-weight:700">Peiying Ma</div>
+          <div style="font-size:13px;color:var(--muted)" data-i18n="nav_title_sub">建筑 · UI/UX 设计师</div>
+        </div>
+      </div>
+      <nav>
+        <a class="navlink" href="#about" data-i18n="nav_about">关于</a>
+        <a class="navlink" href="#projects" data-i18n="nav_projects">作品</a>
+        <a class="navlink" href="#contact" data-i18n="nav_contact">联系</a>
+        <div class="lang-switcher" id="lang-switcher">
+            <span onclick="setLanguage('en')" id="lang-en">EN</span> / 
+            <span onclick="setLanguage('zh')" id="lang-zh">ZH</span>
         </div>
-      </div>
-      <nav>
-        <a class="navlink" href="#about">About</a>
-        <a class="navlink" href="#projects">Projects</a>
-        <a class="navlink" href="#contact">Contact</a>
-      </nav>
-    </header>
+      </nav>
+    </header>
 
-    <!-- HERO -->
-    <main class="hero">
-      <div class="hero-card">
-        <h1>Product Designer at Google</h1>
-        <p class="lead">Currently designing for YouTube video watching experience.<br>
-        Formerly on Pixel camera, Google clock, Verily, and LTl.<br>
-        I like to solve problems and design solutions which leave an impact on lives of people.</p>
+        <main class="hero">
+      <div class="hero-card">
+        <h1 data-i18n="hero_h1">跨学科设计师：建筑、UI/UX与互动体验</h1>
+        <p class="lead" data-i18n="hero_lead">
+          目前在香港大学攻读高级建筑设计硕士，专注于参数化设计与可持续系统。<br>
+          我将严谨的建筑思维应用于数字产品，致力于构建既人性化又高效的用户体验。
+        </p>
 
-        <div class="cta">
-          <button class="btn">View work</button>
-          <a class="btn ghost" href="/resume.pdf" target="_blank">Download CV</a>
-        </div>
+        <div class="cta">
+          <a class="btn" href="#projects" data-i18n="btn_view_work">查看作品集</a>
+          <a class="btn ghost" href="/你的-简历文件名.pdf" target="_blank" data-i18n="btn_download_cv">下载 CV</a>
+        </div>
 
-        <div style="margin-top:18px;color:var(--muted);font-size:13px">UI/UX designer blending architecture and digital experience.</div>
-      </div>
+        <div style="margin-top:18px;color:var(--muted);font-size:13px" data-i18n="hero_subtitle">UI/UX设计师，融合建筑设计与数字体验的创新者。</div>
+      </div>
 
-      <aside class="profile">
-        <div style="display:flex;align-items:center;gap:12px">
-          <div style="width:74px;height:74px;border-radius:14px;background:linear-gradient(135deg,#fff,#f3e8ff);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--text)">P</div>
-          <div>
-            <div style="font-weight:700">Peiying Ma</div>
-            <div class="info">Hong Kong · English / Chinese</div>
-          </div>
-        </div>
-        <div style="margin-top:12px;font-size:13px;color:var(--muted)">Skills: Photoshop · Illustrator · Figma · HTML/CSS · Rhino</div>
-        <div style="margin-top:14px">
-          <a class="navlink" href="https://github.com/MaPeiYing-Rachel" target="_blank">GitHub</a>
-          <a class="navlink" href="mailto:peiying@example.com">Email</a>
-        </div>
-      </aside>
-    </main>
+      <aside class="profile">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:74px;height:74px;border-radius:14px;background:linear-gradient(135deg,#fff,#f3e8ff);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--text)">P</div>
+          <div>
+            <div style="font-weight:700">Peiying Ma</div>
+            <div class="info" data-i18n="profile_location">Hong Kong · English / Chinese</div>
+          </div>
+        </div>
+        <div style="margin-top:12px;font-size:13px;color:var(--muted)" data-i18n="profile_skills">Skills: Rhino · Grasshopper · Figma · PS/AI · HTML/CSS · 游戏开发</div>
+        <div style="margin-top:14px">
+          <a class="navlink" href="https://github.com/MaPeiYing-Rachel" target="_blank">GitHub</a>
+          <a class="navlink" href="mailto:peiying@example.com" data-i18n="profile_email_link">Email</a>
+        </div>
+      </aside>
+    </main>
 
-    <!-- ABOUT & PROJECTS -->
-    <section class="grid" id="about">
-      <div class="card col-8" data-reveal>
-        <h3>About</h3>
-        <p style="color:var(--muted);line-height:1.75">Hi — I’m Peiying. I bridge architecture thinking with product and interface design. My practice centers on clarity, empathy and systems that scale. I build interfaces that feel both human and efficient.</p>
-        <div style="margin-top:12px"><strong>Education</strong><div style="color:var(--muted);margin-top:6px">MSc Advanced Architecture Design — University of Hong Kong (expected 2025)</div></div>
-      </div>
+        <section class="grid" id="about">
+      <div class="card col-8" data-reveal>
+        <h3 data-i18n="about_h3">关于我</h3>
+        <p style="color:var(--muted);line-height:1.75" data-i18n="about_p">大家好，我是 Peiying。我致力于将建筑学的系统思维与产品设计和界面设计结合起来。我的实践核心是清晰度、同理心和可扩展的系统。我构建的界面既人性化又高效。</p>
+        <div style="margin-top:12px">
+          <strong data-i18n="about_education_title">教育背景</strong>
+          <div style="color:var(--muted);margin-top:6px" data-i18n="about_education_p">MSc Advanced Architecture Design — University of Hong Kong (预计 2025 年毕业)</div>
+        </div>
+      </div>
 
-      <div class="card col-4" data-reveal>
-        <h3>Contact</h3>
-        <div class="contact-line" style="margin-top:8px"><strong>Email</strong><div style="color:var(--muted);margin-left:6px">peiying@example.com</div></div>
-        <div style="margin-top:10px;color:var(--muted);font-size:13px">Want to collaborate? Send a short note — I reply personally.</div>
-      </div>
-    </section>
+      <div class="card col-4" data-reveal>
+        <h3 data-i18n="contact_h3_short">联系方式</h3>
+        <div class="contact-line" style="margin-top:8px">
+          <strong data-i18n="contact_email_title">邮箱</strong>
+          <div style="color:var(--muted);margin-left:6px">peiying@example.com</div>
+        </div>
+        <div style="margin-top:10px;color:var(--muted);font-size:13px" data-i18n="contact_p_short">欢迎寻求合作！请给我发邮件，我都会亲自回复。</div>
+      </div>
+    </section>
 
-    <section id="projects">
-      <div class="card" style="margin-top:18px;" data-reveal>
-        <h3>Projects</h3>
-        <div class="projects" style="margin-top:10px">
-          <div class="proj" onclick="openProject('#about')">
-            <div>
-              <div class="project-title">About</div>
-              <div class="project-desc">Short case study and background.</div>
-            </div>
-            <div style="font-size:13px;color:var(--muted)">→</div>
-          </div>
+        <section id="projects">
+      <div class="card" style="margin-top:18px;" data-reveal>
+        <h3 data-i18n="projects_h3">主要作品集分类</h3>
+        <div class="projects" style="margin-top:10px">
+          <div class="proj" onclick="openProject('#about')">
+            <div>
+              <div class="project-title" data-i18n="proj_arch_title">建筑与设计作品集</div>
+              <div class="project-desc" data-i18n="proj_arch_desc">住宅、公共空间、参数化设计方案。</div>
+            </div>
+            <div style="font-size:13px;color:var(--muted)">→</div>
+          </div>
 
-          <div class="proj" onclick="openProject('#projects')">
-            <div>
-              <div class="project-title">Project</div>
-              <div class="project-desc">Interactive UI & data viz examples.</div>
-            </div>
-            <div style="font-size:13px;color:var(--muted)">→</div>
-          </div>
+          <div class="proj" onclick="openProject('#projects')">
+            <div>
+              <div class="project-title" data-i18n="proj_master_title">硕士课程项目</div>
+              <div class="project-desc" data-i18n="proj_master_desc">高级建模、可持续性研究与学术报告。</div>
+            </div>
+            <div style="font-size:13px;color:var(--muted)">→</div>
+          </div>
 
+          <div class="proj" onclick="openProject('#contact')">
+            <div>
+              <div class="project-title" data-i18n="proj_uiux_title">UI/UX 设计探索</div>
+              <div class="project-desc" data-i18n="proj_uiux_desc">App/网站原型、用户体验流程与线框图。</div>
+            </div>
+            <div style="font-size:13px;color:var(--muted)">→</div>
+          </div>
+          
           <div class="proj" onclick="openProject('#contact')">
-            <div>
-              <div class="project-title">Contact</div>
-              <div class="project-desc">Ways to reach me / hire me.</div>
-            </div>
-            <div style="font-size:13px;color:var(--muted)">→</div>
-          </div>
-        </div>
-      </div>
-    </section>
+            <div>
+              <div class="project-title" data-i18n="proj_game_title">游戏/互动媒体</div>
+              <div class="project-desc" data-i18n="proj_game_desc">游戏原型、互动叙事与关卡设计小品。</div>
+            </div>
+            <div style="font-size:13px;color:var(--muted)">→</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <section style="margin-top:22px" id="contact">
-      <div class="card" data-reveal>
-        <h3>Get in touch</h3>
-        <p style="color:var(--muted);">Shoot me an email at <a href="mailto:peiying@example.com">peiying@example.com</a> or leave a short message below.</p>
-        <form onsubmit="handleSubmit(event)" style="margin-top:12px;display:flex;flex-direction:column;gap:10px">
-          <input name="name" placeholder="Your name" required style="padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)">
-          <input name="email" placeholder="Your email" required style="padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)">
-          <textarea name="message" placeholder="Message" rows="4" style="padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)"></textarea>
-          <button class="btn" type="submit">Send</button>
-          <div id="formMsg" style="color:var(--muted);font-size:13px"></div>
-        </form>
-      </div>
-    </section>
+        <section style="margin-top:22px" id="contact">
+      <div class="card" data-reveal>
+        <h3 data-i18n="contact_h3">随时联系我</h3>
+        <p style="color:var(--muted);" data-i18n="contact_p_long">请发送邮件至 <a href="mailto:peiying@example.com">peiying@example.com</a> 或填写下方信息。</p>
+        <form onsubmit="handleSubmit(event)" style="margin-top:12px;display:flex;flex-direction:column;gap:10px">
+          <input name="name" data-i18n-placeholder="form_name_ph" placeholder="您的姓名" required style="padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)">
+          <input name="email" data-i18n-placeholder="form_email_ph" placeholder="您的邮箱" required style="padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)">
+          <textarea name="message" data-i18n-placeholder="form_message_ph" placeholder="留言内容" rows="4" style="padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)"></textarea>
+          <button class="btn" type="submit" data-i18n="form_btn_send">发送</button>
+          <div id="formMsg" style="color:var(--muted);font-size:13px"></div>
+        </form>
+      </div>
+    </section>
 
-    <footer style="margin-top:28px;text-align:center;color:var(--muted);font-size:13px">© <span id="year"></span> Peiying · Built with ❤️</footer>
-  </div>
+    <footer style="margin-top:28px;text-align:center;color:var(--muted);font-size:13px">© <span id="year"></span> Peiying · Built with ❤️</footer>
+  </div>
 
-  <div class="cursor-orb" id="orb"></div>
+  <div class="cursor-orb" id="orb"></div>
 
-  <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
+  <script>
+    // --- 国际化 (i18n) 数据 ---
+    const translations = {
+        'zh': {
+            'title': 'Peiying Ma · 建筑与UI/UX作品集',
+            'meta_description': 'Peiying Ma — 跨学科设计师，融合建筑设计与数字用户体验。',
+            'nav_title_sub': '建筑 · UI/UX 设计师',
+            'nav_about': '关于',
+            'nav_projects': '作品',
+            'nav_contact': '联系',
+            'hero_h1': '跨学科设计师：建筑、UI/UX与互动体验',
+            'hero_lead': '目前在香港大学攻读高级建筑设计硕士，专注于参数化设计与可持续系统。<br>我将严谨的建筑思维应用于数字产品，致力于构建既人性化又高效的用户体验。',
+            'hero_subtitle': 'UI/UX设计师，融合建筑设计与数字体验的创新者。',
+            'btn_view_work': '查看作品集',
+            'btn_download_cv': '下载 CV',
+            'profile_location': '香港 · 英文 / 中文',
+            'profile_skills': '技能: Rhino · Grasshopper · Figma · PS/AI · HTML/CSS · 游戏开发',
+            'profile_email_link': '邮箱',
+            'about_h3': '关于我',
+            'about_p': '大家好，我是 Peiying。我致力于将建筑学的系统思维与产品设计和界面设计结合起来。我的实践核心是清晰度、同理心和可扩展的系统。我构建的界面既人性化又高效。',
+            'about_education_title': '教育背景',
+            'about_education_p': 'MSc Advanced Architecture Design — University of Hong Kong (预计 2025 年毕业)',
+            'contact_h3_short': '联系方式',
+            'contact_email_title': '邮箱',
+            'contact_p_short': '欢迎寻求合作！请给我发邮件，我都会亲自回复。',
+            'projects_h3': '主要作品集分类',
+            'proj_arch_title': '建筑与设计作品集',
+            'proj_arch_desc': '住宅、公共空间、参数化设计方案。',
+            'proj_master_title': '硕士课程项目',
+            'proj_master_desc': '高级建模、可持续性研究与学术报告。',
+            'proj_uiux_title': 'UI/UX 设计探索',
+            'proj_uiux_desc': 'App/网站原型、用户体验流程与线框图。',
+            'proj_game_title': '游戏/互动媒体',
+            'proj_game_desc': '游戏原型、互动叙事与关卡设计小品。',
+            'contact_h3': '随时联系我',
+            'contact_p_long': '请发送邮件至 peiying@example.com 或填写下方信息。',
+            'form_name_ph': '您的姓名',
+            'form_email_ph': '您的邮箱',
+            'form_message_ph': '留言内容',
+            'form_btn_send': '发送',
+            'form_msg_sent': '已发送（模拟）。如需真实邮件接收，请配置 Formspree / Netlify Forms。'
+        },
+        'en': {
+            'title': 'Peiying Ma · Architecture & UI/UX Portfolio',
+            'meta_description': 'Peiying Ma — Cross-disciplinary designer blending architecture and digital user experience.',
+            'nav_title_sub': 'Architecture · UI/UX Designer',
+            'nav_about': 'About',
+            'nav_projects': 'Projects',
+            'nav_contact': 'Contact',
+            'hero_h1': 'Cross-Disciplinary Designer: Architecture, UI/UX, and Interaction',
+            'hero_lead': 'Currently pursuing an MSc in Advanced Architecture Design at the University of Hong Kong, focusing on parametric design and sustainable systems.<br>I apply rigorous architectural thinking to digital products, committed to building user experiences that are both human and efficient.',
+            'hero_subtitle': 'UI/UX Designer, Innovator bridging architectural design and digital experience.',
+            'btn_view_work': 'View Portfolio',
+            'btn_download_cv': 'Download CV',
+            'profile_location': 'Hong Kong · English / Chinese',
+            'profile_skills': 'Skills: Rhino · Grasshopper · Figma · PS/AI · HTML/CSS · Game Dev',
+            'profile_email_link': 'Email',
+            'about_h3': 'About Me',
+            'about_p': 'Hi — I’m Peiying. I strive to merge the systematic thinking of architecture with product and interface design. My practice centers on clarity, empathy, and scalable systems. I build interfaces that feel both human and efficient.',
+            'about_education_title': 'Education',
+            'about_education_p': 'MSc Advanced Architecture Design — University of Hong Kong (Expected 2025)',
+            'contact_h3_short': 'Contact',
+            'contact_email_title': 'Email',
+            'contact_p_short': 'I welcome collaboration! Feel free to send me a short note—I reply personally.',
+            'projects_h3': 'Portfolio Categories',
+            'proj_arch_title': 'Architecture & Design Portfolio',
+            'proj_arch_desc': 'Residential, public spaces, and parametric design proposals.',
+            'proj_master_title': 'Master’s Coursework Projects',
+            'proj_master_desc': 'Advanced modeling, sustainability studies, and academic reports.',
+            'proj_uiux_title': 'UI/UX Design Explorations',
+            'proj_uiux_desc': 'App/website prototypes, user flow maps, and wireframing.',
+            'proj_game_title': 'Game/Interactive Media',
+            'proj_game_desc': 'Game prototypes, interactive storytelling, and level design sketches.',
+            'contact_h3': 'Get in Touch',
+            'contact_p_long': 'Shoot me an email at peiying@example.com or leave a short message below.',
+            'form_name_ph': 'Your name',
+            'form_email_ph': 'Your email',
+            'form_message_ph': 'Message',
+            'form_btn_send': 'Send',
+            'form_msg_sent': 'Sent (simulated). For real email reception, please set up Formspree / Netlify Forms.'
+        }
+    };
+    
+    let currentLang = localStorage.getItem('lang') || (navigator.language.startsWith('zh') ? 'zh' : 'en');
 
-    // Simple reveal on scroll
-    const reveals = document.querySelectorAll('[data-reveal]');
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){ e.target.classList.add('revealed'); io.unobserve(e.target); }
-      });
-    },{threshold:0.15});
-    reveals.forEach(r=>io.observe(r));
+    // 翻译函数
+    function setLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem('lang', lang);
+        
+        // 更新所有 data-i18n 文本
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            const translation = translations[lang][key] || element.textContent;
+            
+            // 处理 <br> 标签的 HTML 翻译
+            if (key === 'hero_lead') {
+                element.innerHTML = translation;
+            } else {
+                element.textContent = translation;
+            }
+        });
+        
+        // 更新 Placeholder 文本
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+            const key = element.getAttribute('data-i18n-placeholder');
+            element.setAttribute('placeholder', translations[lang][key] || '');
+        });
 
-    // Orb follow cursor with subtle delay
-    const orb = document.getElementById('orb');
-    let mouseX = window.innerWidth/2, mouseY = window.innerHeight/2, orbX = mouseX, orbY = mouseY;
-    window.addEventListener('mousemove', (e)=>{ mouseX = e.clientX; mouseY = e.clientY; orb.style.opacity = 1; orb.style.transform = 'translate('+ (mouseX - orb.offsetWidth/2) +'px, '+ (mouseY - orb.offsetHeight/2) +'px) scale(1)'; });
-    // gentle idle movement
-    setInterval(()=>{
-      orbX += (mouseX - orbX) * 0.12;
-      orbY += (mouseY - orbY) * 0.12;
-      orb.style.left = orbX + 'px'; orb.style.top = orbY + 'px';
-    },16);
+        // 切换语言选择的激活状态
+        document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+        document.getElementById('lang-en').classList.toggle('inactive', lang === 'zh');
+        document.getElementById('lang-zh').classList.toggle('active', lang === 'zh');
+        document.getElementById('lang-zh').classList.toggle('inactive', lang === 'en');
 
-    // Project click handler (demo)
-    function openProject(hash){
-      location.hash = hash;
-      const el = document.querySelector(hash);
-      if(el) el.scrollIntoView({behavior:'smooth',block:'center'});
+        // 更新 HTML 语言属性和 meta 描述
+        document.documentElement.lang = lang;
+        document.querySelector('meta[name="description"]').content = translations[lang]['meta_description'];
+        document.title = translations[lang]['title'];
     }
 
-    // Form placeholder
-    function handleSubmit(e){
-      e.preventDefault();
-      document.getElementById('formMsg').textContent = '已发送（模拟）。如需真实邮件接收，请配置 Formspree / Netlify Forms。';
-      e.target.reset();
-    }
+    window.addEventListener('load', ()=>{
+        // 加载动画移除
+        const loader = document.getElementById('loader');
+        loader.style.transition = 'opacity 0.6s ease';
+        loader.style.opacity = '0';
+        setTimeout(()=>loader.remove(), 600);
 
-    // small keyboard shortcut for fun: press 'k' to jump to projects
-    window.addEventListener('keydown', (e)=>{ if(e.key === 'k') openProject('#projects'); });
-  </script>
+        // 首次加载页面时应用语言
+        setLanguage(currentLang);
+    });
+    
+    // --- 其他脚本保持不变 ---
+    
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple reveal on scroll
+    const reveals = document.querySelectorAll('[data-reveal]');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('revealed'); io.unobserve(e.target); }
+      });
+    },{threshold:0.15});
+    reveals.forEach(r=>io.observe(r));
+
+    // Orb follow cursor with subtle delay
+    const orb = document.getElementById('orb');
+    let mouseX = window.innerWidth/2, mouseY = window.innerHeight/2, orbX = mouseX, orbY = mouseY;
+    window.addEventListener('mousemove', (e)=>{ mouseX = e.clientX; mouseY = e.clientY; orb.style.opacity = 1; orb.style.transform = 'translate('+ (mouseX - orb.offsetWidth/2) +'px, '+ (mouseY - orb.offsetHeight/2) +'px) scale(1)'; });
+    // gentle idle movement
+    setInterval(()=>{
+      orbX += (mouseX - orbX) * 0.12;
+      orbY += (mouseY - orbY) * 0.12;
+      orb.style.left = orbX + 'px'; orb.style.top = orbY + 'px';
+    },16);
+
+    // Project click handler (demo)
+    function openProject(hash){
+      location.hash = hash;
+      const el = document.querySelector(hash);
+      if(el) el.scrollIntoView({behavior:'smooth',block:'center'});
+    }
+
+    // Form placeholder
+    function handleSubmit(e){
+      e.preventDefault();
+      document.getElementById('formMsg').textContent = translations[currentLang]['form_msg_sent'];
+      e.target.reset();
+    }
+
+    // small keyboard shortcut for fun: press 'k' to jump to projects
+    window.addEventListener('keydown', (e)=>{ if(e.key === 'k') openProject('#projects'); });
+  </script>
 </body>
 </html>
