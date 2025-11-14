@@ -6,7 +6,7 @@
   <title>Peiying Ma · Architecture & UI/UX Portfolio</title>
   <meta name="description" content="Peiying Ma — Cross-disciplinary designer blending architecture and digital user experience." />
   <style>
-    /* 外部 CSS 仍然保留，用于其他样式和媒体查询，但核心布局由内联样式接管 */
+    /* 仅保留非布局相关的基础样式和媒体查询，所有布局相关的Flex/Grid都已移至内联 */
     *{box-sizing:border-box}
     html,body{
         height:100%;
@@ -18,7 +18,6 @@
     }
     a{color:inherit}
     .wrap{max-width:1100px;margin:48px auto;padding:28px}
-    /* 布局相关 CSS 规则已移除，由内联样式接管 */
     nav{display:flex;gap:12px;align-items:center}
     .navlink{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.12);backdrop-filter:blur(6px);cursor:pointer;transition:transform .25s ease,box-shadow .25s}
     .navlink:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.12)}
@@ -32,8 +31,7 @@
     .profile{padding:20px;border-radius:14px;background:rgba(255,255,255,0.5);backdrop-filter:blur(8px)}
     .info{font-size:13px;color:#6b7280;margin-top:10px}
     section{margin-top:36px}
-    /* Grid 布局样式仍然保留，但已被内联样式覆盖 */
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+    /* Grid/Col 样式由于被内联覆盖，但媒体查询仍需保留 */
     .col-8{grid-column:span 8}.col-4{grid-column:span 4}
     .card{padding:20px;border-radius:14px;background:rgba(255,255,255,0.86);box-shadow: 0 8px 20px rgba(2,6,23,0.04);opacity:0;transform:translateY(18px) scale(.995);transition:opacity .7s ease, transform .7s ease}
     .card.revealed{opacity:1;transform:translateY(0) scale(1)}
@@ -60,7 +58,7 @@
   100% { transform: scale(0.7) rotate(360deg); opacity:0.7; }
 }
 </style>
-  <div class="wrap">
+  <div class="wrap" style="max-width:1100px;margin:48px auto;padding:28px;">
         <header style="display: flex; justify-content: space-between; align-items: center; gap: 16px;">
             <div class="brand" style="display: flex; align-items: center; gap: 14px;">
         <div class="avatar">PM</div>
@@ -69,96 +67,96 @@
           <div style="font-size:13px;color:#6b7280">Architecture · UI/UX Designer</div>
         </div>
         </div>
-      <nav>
+      <nav style="display:flex;gap:12px;align-items:center">
         <a class="navlink" href="#about">About</a>
         <a class="navlink" href="#projects">Projects</a>
         <a class="navlink" href="#contact">Contact</a>
       </nav>
     </header>
         <main class="hero" style="display: grid; grid-template-columns: 1fr 360px; gap: 28px; align-items: center; margin-top: 28px;">
-      <div class="hero-card">
-        <h1>Cross-Disciplinary Designer: Architecture, UI/UX, and Interaction</h1>
-        <p class="lead">
+      <div class="hero-card" style="padding:36px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.73));box-shadow: 0 10px 30px rgba(15,23,42,0.08);">
+        <h1 style="margin:0;font-size:28px;letter-spacing:-0.02em">Cross-Disciplinary Designer: Architecture, UI/UX, and Interaction</h1>
+        <p class="lead" style="margin-top:12px;color:#6b7280;line-height:1.6">
           Currently pursuing an MSc in Advanced Architecture Design at the University of Hong Kong, focusing on parametric design and sustainable systems.<br>
           I apply rigorous architectural thinking to digital products, committed to building user experiences that are both human and efficient.
         </p>
-        <div class="cta">
+        <div class="cta" style="margin-top:18px;display:flex;gap:12px">
           <a class="btn" href="#projects">View Portfolio</a>
           <a class="btn ghost" href="#">Download CV</a>
         </div>
         <div style="margin-top:18px;color:#6b7280;font-size:13px">UI/UX Designer, Innovator bridging architectural design and digital experience.</div>
       </div>
-      <aside class="profile">
+      <aside class="profile" style="padding:20px;border-radius:14px;background:rgba(255,255,255,0.5);backdrop-filter:blur(8px)">
         <div style="display:flex;align-items:center;gap:12px">
           <div style="width:74px;height:74px;border-radius:14px;background:linear-gradient(135deg,#fff,#f3e8ff);display:flex;align-items:center;justify-content:center;font-weight:700;color:#111827">P</div>
           <div>
             <div style="font-weight:700">Peiying Ma</div>
-            <div class="info">Hong Kong · English / Chinese</div>
+            <div class="info" style="font-size:13px;color:#6b7280;margin-top:10px">Hong Kong · English / Chinese</div>
           </div>
         </div>
         <div style="margin-top:12px;font-size:13px;color:#6b7280">Skills: Rhino · Grasshopper · Figma · PS/AI · HTML/CSS · Game Dev</div>
-        <div style="margin-top:14px">
+        <div style="margin-top:14px;display:flex;gap:12px;align-items:center">
           <a class="navlink" href="https://github.com/MaPeiYing-Rachel" target="_blank">GitHub</a>
           <a class="navlink" href="mailto:peiying@example.com">Email</a>
         </div>
       </aside>
     </main>
-        <section class="grid" id="about" style="display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px;">
-      <div class="card col-8" data-reveal>
-        <h3>About Me</h3>
+        <section class="grid" id="about" style="margin-top:36px;display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px;">
+      <div class="card col-8" data-reveal style="padding:20px;border-radius:14px;background:rgba(255,255,255,0.86);box-shadow: 0 8px 20px rgba(2,6,23,0.04);">
+        <h3 style="margin-top:0">About Me</h3>
         <p style="color:#6b7280;line-height:1.75">Hi — I’m Peiying. I strive to merge the systematic thinking of architecture with product and interface design. My practice centers on clarity, empathy, and scalable systems. I build interfaces that feel both human and efficient.</p>
         <div style="margin-top:12px">
           <strong>Education</strong>
           <div style="color:#6b7280;margin-top:6px">MSc Advanced Architecture Design — University of Hong Kong (Expected 2025)</div>
         </div>
       </div>
-      <div class="card col-4" data-reveal>
-        <h3>Contact</h3>
-        <div class="contact-line" style="margin-top:8px">
+      <div class="card col-4" data-reveal style="padding:20px;border-radius:14px;background:rgba(255,255,255,0.86);box-shadow: 0 8px 20px rgba(2,6,23,0.04);">
+        <h3 style="margin-top:0">Contact</h3>
+        <div class="contact-line" style="margin-top:8px;display:flex;gap:12px;align-items:center">
           <strong>Email</strong>
           <div style="color:#6b7280;margin-left:6px">peiying@example.com</div>
         </div>
         <div style="margin-top:10px;color:#6b7280;font-size:13px">I welcome collaboration! Feel free to send me a short note—I reply personally.</div>
       </div>
     </section>
-        <section id="projects">
-      <div class="card" style="margin-top:18px;" data-reveal>
-        <h3>Portfolio Categories</h3>
-        <div class="projects" style="margin-top:10px">
-          <div class="proj" onclick="openProject('#about')">
+        <section id="projects" style="margin-top:36px;">
+      <div class="card" style="margin-top:18px;padding:20px;border-radius:14px;background:rgba(255,255,255,0.86);box-shadow: 0 8px 20px rgba(2,6,23,0.04);" data-reveal>
+        <h3 style="margin-top:0">Portfolio Categories</h3>
+        <div class="projects" style="margin-top:10px;display:flex;flex-direction:column;gap:14px">
+          <div class="proj" onclick="openProject('#about')" style="display:flex;align-items:center;justify-content:space-between;padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));border: 1px solid rgba(0,0,0,0.08); cursor:pointer;">
             <div>
-              <div class="project-title">Architecture & Design Portfolio</div>
-              <div class="project-desc">Residential, public spaces, and parametric design proposals.</div>
+              <div class="project-title" style="font-weight:700">Architecture & Design Portfolio</div>
+              <div class="project-desc" style="font-size:13px;color:#6b7280">Residential, public spaces, and parametric design proposals.</div>
             </div>
             <div style="font-size:13px;color:#6b7280">→</div>
           </div>
-          <div class="proj" onclick="openProject('#projects')">
+          <div class="proj" onclick="openProject('#projects')" style="display:flex;align-items:center;justify-content:space-between;padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));border: 1px solid rgba(0,0,0,0.08); cursor:pointer;">
             <div>
-              <div class="project-title">Master’s Coursework Projects</div>
-              <div class="project-desc">Advanced modeling, sustainability studies, and academic reports.</div>
+              <div class="project-title" style="font-weight:700">Master’s Coursework Projects</div>
+              <div class="project-desc" style="font-size:13px;color:#6b7280">Advanced modeling, sustainability studies, and academic reports.</div>
             </div>
             <div style="font-size:13px;color:#6b7280">→</div>
           </div>
-          <div class="proj" onclick="openProject('#contact')">
+          <div class="proj" onclick="openProject('#contact')" style="display:flex;align-items:center;justify-content:space-between;padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));border: 1px solid rgba(0,0,0,0.08); cursor:pointer;">
             <div>
-              <div class="project-title">UI/UX Design Explorations</div>
-              <div class="project-desc">App/website prototypes, user flow maps, and wireframing.</div>
+              <div class="project-title" style="font-weight:700">UI/UX Design Explorations</div>
+              <div class="project-desc" style="font-size:13px;color:#6b7280">App/website prototypes, user flow maps, and wireframing.</div>
             </div>
             <div style="font-size:13px;color:#6b7280">→</div>
           </div>
-          <div class="proj" onclick="openProject('#contact')">
+          <div class="proj" onclick="openProject('#contact')" style="display:flex;align-items:center;justify-content:space-between;padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));border: 1px solid rgba(0,0,0,0.08); cursor:pointer;">
             <div>
-              <div class="project-title">Game/Interactive Media</div>
-              <div class="project-desc">Game prototypes, interactive storytelling, and level design sketches.</div>
+              <div class="project-title" style="font-weight:700">Game/Interactive Media</div>
+              <div class="project-desc" style="font-size:13px;color:#6b7280">Game prototypes, interactive storytelling, and level design sketches.</div>
             </div>
             <div style="font-size:13px;color:#6b7280">→</div>
           </div>
         </div>
       </div>
     </section>
-        <section style="margin-top:22px" id="contact">
-      <div class="card" data-reveal>
-        <h3>Get in Touch</h3>
+        <section id="contact" style="margin-top:22px;">
+      <div class="card" data-reveal style="padding:20px;border-radius:14px;background:rgba(255,255,255,0.86);box-shadow: 0 8px 20px rgba(2,6,23,0.04);">
+        <h3 style="margin-top:0">Get in Touch</h3>
         <p style="color:#6b7280;">Shoot me an email at <a href="mailto:peiying@example.com">peiying@example.com</a> or leave a short message below.</p>
         <form onsubmit="handleSubmit(event)" style="margin-top:12px;display:flex;flex-direction:column;gap:10px">
           <input name="name" placeholder="Your name" required style="padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)">
