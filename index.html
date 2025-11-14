@@ -5,12 +5,14 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Peiying Ma · Architecture & UI/UX Portfolio</title>
   <meta name="description" content="Peiying Ma — Cross-disciplinary designer blending architecture and digital user experience." />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
   <style>
-    /* 仅保留非布局相关的基础样式和媒体查询，所有布局相关的Flex/Grid都已移至内联 */
+    /* 所有的布局规则都在内联样式中，这里仅保留非布局相关的样式 */
     *{box-sizing:border-box}
     html,body{
         height:100%;
         margin:0;
+        /* 确保使用 Inter 字体 */
         font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
         -webkit-font-smoothing:antialiased;
         background:linear-gradient(180deg, #6a4cff 0%, #ffffff 100%); 
@@ -22,7 +24,9 @@
     .navlink{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.12);backdrop-filter:blur(6px);cursor:pointer;transition:transform .25s ease,box-shadow .25s}
     .navlink:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.12)}
     .hero-card{padding:36px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.73));box-shadow: 0 10px 30px rgba(15,23,42,0.08);}
-    h1{margin:0;font-size:28px;letter-spacing:-0.02em}
+    /* 修复 H1 标题过长/行高问题 */
+    h1{margin:0;font-size:28px;letter-spacing:-0.02em; line-height: 1.2;}
+    /* 修复段落过长/行高问题 */
     .lead{margin-top:12px;color:#6b7280;line-height:1.6}
     .cta{margin-top:18px;display:flex;gap:12px}
     .btn{padding:10px 14px;border-radius:12px;background:linear-gradient(90deg,#8b5cf6,#6d28d9);color:white;border:none;cursor:pointer;box-shadow:0 10px 30px rgba(99,102,241,0.16);transition:transform .18s}
@@ -31,8 +35,9 @@
     .profile{padding:20px;border-radius:14px;background:rgba(255,255,255,0.5);backdrop-filter:blur(8px)}
     .info{font-size:13px;color:#6b7280;margin-top:10px}
     section{margin-top:36px}
-    /* Grid/Col 样式由于被内联覆盖，但媒体查询仍需保留 */
     .col-8{grid-column:span 8}.col-4{grid-column:span 4}
+    /* 确保 card 内部的段落行高也正常 */
+    .card p { line-height: 1.6; }
     .card{padding:20px;border-radius:14px;background:rgba(255,255,255,0.86);box-shadow: 0 8px 20px rgba(2,6,23,0.04);opacity:0;transform:translateY(18px) scale(.995);transition:opacity .7s ease, transform .7s ease}
     .card.revealed{opacity:1;transform:translateY(0) scale(1)}
     .projects{display:flex;flex-direction:column;gap:14px}
@@ -75,7 +80,7 @@
     </header>
         <main class="hero" style="display: grid; grid-template-columns: 1fr 360px; gap: 28px; align-items: center; margin-top: 28px;">
       <div class="hero-card" style="padding:36px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.73));box-shadow: 0 10px 30px rgba(15,23,42,0.08);">
-        <h1 style="margin:0;font-size:28px;letter-spacing:-0.02em">Cross-Disciplinary Designer: Architecture, UI/UX, and Interaction</h1>
+        <h1>Cross-Disciplinary Designer: Architecture, UI/UX, and Interaction</h1>
         <p class="lead" style="margin-top:12px;color:#6b7280;line-height:1.6">
           Currently pursuing an MSc in Advanced Architecture Design at the University of Hong Kong, focusing on parametric design and sustainable systems.<br>
           I apply rigorous architectural thinking to digital products, committed to building user experiences that are both human and efficient.
@@ -212,10 +217,4 @@
     }
     function handleSubmit(e){
       e.preventDefault();
-      document.getElementById('formMsg').textContent = 'Message sent (simulated). For real email reception, please set up Formspree / Netlify Forms.';
-      e.target.reset();
-    }
-    window.addEventListener('keydown', (e)=>{ if(e.key === 'k') openProject('#projects'); });
-  </script>
-</body>
-</html>
+      document.getElementById('formMsg').textContent = '
