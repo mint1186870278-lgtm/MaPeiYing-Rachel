@@ -1,16 +1,18 @@
-import { Resend } from "resend";
-
 export async function POST(request) {
   try {
     // Check if API key is available
-    if (!process.env.RESEND_API_KEY) {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey || apiKey === "dummy_key_for_build") {
       return Response.json(
         { error: "Email service not configured" },
         { status: 500 }
       );
     }
 
-    const resend = new Resend(process.env.RESEND_API_KEY);
+    // Dynamic import to avoid build-time execution
+    const { Resend } = await import("resend");
+    const resend = new Resend(apiKey);
+    
     const { name, email, message } = await request.json();
 
     const data = await resend.emails.send({
