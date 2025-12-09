@@ -21,14 +21,14 @@ const ProjectCard = ({ imgUrl, blurImgUrl, title, description, codeLink, preview
 
         {/* hover overlay */}
         <div
-          className="absolute inset-0 flex items-center justify-center gap-4 transition duration-500 opacity-0 group-hover:opacity-80 rounded-t-xl z-10"
+          className="absolute inset-0 flex items-center justify-center gap-4 transition duration-500 opacity-0 group-hover:opacity-100 rounded-t-xl z-20 pointer-events-none group-hover:pointer-events-auto"
           style={{ backgroundColor: 'rgba(24,24,24,0.7)' }}
         >
           {codeLink && (
             <Link
               href={codeLink}
               target="_blank"
-              className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white flex items-center justify-center"
+              className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white flex items-center justify-center pointer-events-auto z-30"
             >
               <CodeBracketIcon className="h-10 w-10 text-[#ADB7BE] cursor-pointer hover:text-white" />
             </Link>
@@ -36,7 +36,7 @@ const ProjectCard = ({ imgUrl, blurImgUrl, title, description, codeLink, preview
           {previewLink && (
             <Link
               href={previewLink}
-              className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white flex items-center justify-center"
+              className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white flex items-center justify-center pointer-events-auto z-30"
             >
               <EyeIcon className="h-10 w-10 text-[#ADB7BE] cursor-pointer hover:text-white" />
             </Link>

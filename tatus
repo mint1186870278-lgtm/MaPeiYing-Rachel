@@ -1,0 +1,31 @@
+[1mdiff --git a/src/app/components/ProjectsSection.jsx b/src/app/components/ProjectsSection.jsx[m
+[1mindex 474f8a3..05156ba 100644[m
+[1m--- a/src/app/components/ProjectsSection.jsx[m
+[1m+++ b/src/app/components/ProjectsSection.jsx[m
+[36m@@ -8,7 +8,7 @@[m [mconst projectsData = [[m
+     id: "Project1",[m
+     title: "RIVIVE: RESTORING LIFE TO OUR BROKEN RIVER",[m
+     description: "The Rivive landscape plan aims to restore a damaged river ecosystem for the community's benefit through promoting biodiversity and improving water quality.",[m
+[31m-    imgUrl: "/images/projects/Project1.png",[m
+[32m+[m[32m    imgUrl: "/images/projects/Project1(compressed).png",[m
+     blurImgUrl: "/images/projectsBlur/Project1(blur).png",[m
+     codeLink: "https://github.com/your-repo-1",[m
+     previewLink: "/project1-preview",[m
+[36m@@ -18,7 +18,7 @@[m [mconst projectsData = [[m
+     id: "Project2",[m
+     title: "RIVIVE: COMMUNITY CONFLUENTIA: A TIDAL PARK FOR NATURE AND",[m
+     description: "The Confluentia tidal park proposal aims to create a sustainable public space at the meeting point of two rivers, providing wildlife habitat and recreation opportunities for the local community.",[m
+[31m-    imgUrl: "/images/projects/Project2.png",[m
+[32m+[m[32m    imgUrl: "/images/projects/Project2(compressed).png",[m
+     blurImgUrl: "/images/projectsBlur/Project2(blur).png",[m
+     codeLink: "https://github.com/your-repo-2",[m
+     previewLink: "/project2-preview",[m
+[36m@@ -28,7 +28,7 @@[m [mconst projectsData = [[m
+     id: "Project3",[m
+     title: "RIVIVE: FRESH LINK",[m
+     description: "The vegetable supply station aims to provide fresh produce to an urban village community and create a new relationship between people and vegetables, while also offering part-time job opportunities for college students.",[m
+[31m-    imgUrl: "/images/projects/Project3.png",[m
+[32m+[m[32m    imgUrl: "/images/projects/Project3(compressed).png",[m
+     blurImgUrl: "/images/projectsBlur/Project3(blur).png",[m
+     codeLink: "https://github.com/your-repo-3",[m
+     previewLink: "/project3-preview",[m
