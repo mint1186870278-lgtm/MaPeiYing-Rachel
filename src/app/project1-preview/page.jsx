@@ -55,7 +55,8 @@ export default function Project1Preview() {
                   height={800}
                   className="w-full h-auto object-cover"
                   alt="Problem Analysis"
-                  unoptimized={process.env.NODE_ENV === 'development'}
+                  quality={85}
+                  sizes="(max-width: 768px) 100vw, 1200px"
                 />
               </div>
             </div>
@@ -77,7 +78,8 @@ export default function Project1Preview() {
                   height={800}
                   className="w-full h-auto object-cover"
                   alt="Causes of the Problem"
-                  unoptimized={process.env.NODE_ENV === 'development'}
+                  quality={85}
+                  sizes="(max-width: 768px) 100vw, 1200px"
                 />
               </div>
             </div>
@@ -99,7 +101,8 @@ export default function Project1Preview() {
                   height={800}
                   className="w-full h-auto object-cover"
                   alt="Genealogical Tree"
-                  unoptimized={process.env.NODE_ENV === 'development'}
+                  quality={85}
+                  sizes="(max-width: 768px) 100vw, 1200px"
                 />
               </div>
             </div>
@@ -128,7 +131,8 @@ export default function Project1Preview() {
                   height={800}
                   className="w-full h-auto object-cover"
                   alt="Strategy 1"
-                  unoptimized={process.env.NODE_ENV === 'development'}
+                  quality={85}
+                  sizes="(max-width: 768px) 100vw, 1200px"
                 />
               </div>
             </div>
@@ -158,7 +162,8 @@ export default function Project1Preview() {
                     height={800}
                     className="w-full h-auto object-cover"
                     alt="Strategy 2"
-                    unoptimized={process.env.NODE_ENV === 'development'}
+                    quality={85}
+                  sizes="(max-width: 768px) 100vw, 1200px"
                   />
                 </div>
 
@@ -169,7 +174,8 @@ export default function Project1Preview() {
                     height={800}
                     className="w-full h-auto object-cover"
                     alt="Strategy 2"
-                    unoptimized={process.env.NODE_ENV === 'development'}
+                    quality={85}
+                  sizes="(max-width: 768px) 100vw, 1200px"
                   />
                 </div>
               </div>
@@ -191,7 +197,8 @@ export default function Project1Preview() {
                   height={800}
                   className="w-full h-auto object-cover"
                   alt="Strategy 2.2"
-                  unoptimized={process.env.NODE_ENV === 'development'}
+                  quality={85}
+                  sizes="(max-width: 768px) 100vw, 1200px"
                 />
               </div>
             </div>
@@ -214,7 +221,8 @@ export default function Project1Preview() {
                     height={800}
                     className="w-full h-auto object-contain rounded-xl"
                     alt="Strategy 3 - Image 1"
-                    unoptimized={process.env.NODE_ENV === 'development'}
+                    quality={85}
+                  sizes="(max-width: 768px) 100vw, 1200px"
                   />
                 </div>
 
@@ -225,7 +233,8 @@ export default function Project1Preview() {
                     height={800}
                     className="w-full h-auto object-contain rounded-xl"
                     alt="Strategy 3 - Image 2"
-                    unoptimized={process.env.NODE_ENV === 'development'}
+                    quality={85}
+                  sizes="(max-width: 768px) 100vw, 1200px"
                   />
                 </div>
               </div>
@@ -250,7 +259,8 @@ export default function Project1Preview() {
                   height={800}
                   className="w-full h-auto object-cover"
                   alt="Final Visualization"
-                  unoptimized={process.env.NODE_ENV === 'development'}
+                  quality={85}
+                  sizes="(max-width: 768px) 100vw, 1200px"
                 />
               </div>
           </div>

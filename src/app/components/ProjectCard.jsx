@@ -15,7 +15,8 @@ const ProjectCard = ({ imgUrl, blurImgUrl, title, description, codeLink, preview
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           placeholder={blurImgUrl ? "blur" : "empty"}
           blurDataURL={blurImgUrl || undefined}
-          loading="lazy"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          quality={85}
         />
 
         {/* hover overlay */}

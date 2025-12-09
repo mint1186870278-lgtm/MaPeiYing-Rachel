@@ -92,6 +92,8 @@ const HeroSection = () => {
                 className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-[250px] h-[250px] md:w-[300px] md:h-[300px] lg:w-[300px] lg:h-[300px] xl:w-[350px] xl:h-[350px] object-contain"
                 width={350}
                 height={350}
+                priority
+                quality={90}
               />
             </div>
           </div>

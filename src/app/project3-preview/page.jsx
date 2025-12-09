@@ -52,7 +52,8 @@ export default function Project3Preview() {
                   height={800} 
                   className="w-full h-auto object-cover rounded-xl"
                   alt="Causes of the Problem"
-                  unoptimized={process.env.NODE_ENV === 'development'}
+                  quality={85}
+                  sizes="(max-width: 768px) 100vw, 1200px"
                 />
               </div>
             </div>
@@ -75,7 +76,8 @@ export default function Project3Preview() {
                   height={800} 
                   className="w-full h-auto object-cover rounded-xl"
                   alt="Causes of the Problem"
-                  unoptimized={process.env.NODE_ENV === 'development'}
+                  quality={85}
+                  sizes="(max-width: 768px) 100vw, 1200px"
                 />
               </div>
             </div>
@@ -97,7 +99,8 @@ export default function Project3Preview() {
                   height={800} 
                   className="w-full h-auto object-cover rounded-xl"
                   alt="Causes of the Problem"
-                  unoptimized={process.env.NODE_ENV === 'development'}
+                  quality={85}
+                  sizes="(max-width: 768px) 100vw, 1200px"
                 />
               </div>
             </div>
@@ -119,7 +122,8 @@ export default function Project3Preview() {
                   height={800} 
                   className="w-full h-auto object-cover rounded-xl"
                   alt="Causes of the Problem"
-                  unoptimized={process.env.NODE_ENV === 'development'}
+                  quality={85}
+                  sizes="(max-width: 768px) 100vw, 1200px"
                 />
               </div>
             </div>
@@ -141,7 +145,8 @@ export default function Project3Preview() {
                   height={800} 
                   className="w-full h-auto object-cover rounded-xl"
                   alt="Causes of the Problem"
-                  unoptimized={process.env.NODE_ENV === 'development'}
+                  quality={85}
+                  sizes="(max-width: 768px) 100vw, 1200px"
                 />
               </div>
             </div>
