@@ -82,7 +82,7 @@ const ProjectsSection = () => {
 
       {/* 项目卡片 */}
       <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-        {filteredProjects.map((project) => (
+        {filteredProjects.map((project, index) => (
           <ProjectCard
             key={project.id}
             title={project.title}
@@ -91,6 +91,7 @@ const ProjectsSection = () => {
             blurImgUrl={project.blurImgUrl}
             codeLink={project.codeLink}
             previewLink={project.previewLink}
+            priority={index < 3}
           />
         ))}
       </div>
