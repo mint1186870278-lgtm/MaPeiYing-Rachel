@@ -28,12 +28,17 @@ export default function Video2Preview() {
           <video
             controls
             autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
             className="w-full h-auto"
             style={{ maxHeight: "80vh" }}
           >
-            <source src="/videos/video2.mp4" type="video/mp4" />
-            <source src="/videos/video2.webm" type="video/webm" />
-            <source src="/videos/video2.mov" type="video/quicktime" />
+            <source
+              src="https://res.cloudinary.com/dyikpkc5k/video/upload/v1765351336/video2_e8oiyi.mp4"
+              type="video/mp4"
+            />
             Your browser does not support the video tag.
           </video>
         </div>

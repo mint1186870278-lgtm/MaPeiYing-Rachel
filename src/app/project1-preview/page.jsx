@@ -279,6 +279,11 @@ export default function Project1Preview() {
               <div className="bg-[#181818] rounded-xl overflow-hidden shadow-2xl">
                 <video
                   controls
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
                   className="w-full h-auto"
                   style={{ maxHeight: "80vh" }}
                 >
@@ -299,6 +304,11 @@ export default function Project1Preview() {
               <div className="bg-[#181818] rounded-xl overflow-hidden shadow-2xl">
                 <video
                   controls
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
                   className="w-full h-auto"
                   style={{ maxHeight: "80vh" }}
                 >
