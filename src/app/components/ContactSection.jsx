@@ -25,8 +25,10 @@ const ContactSection = () => {
         }),
       });
 
+      const data = await res.json();
+
       if (!res.ok) {
-        throw new Error("Failed to send");
+        throw new Error(data.error || "Failed to send");
       }
 
       setStatus({ type: "success", text: "Message sent successfully." });
@@ -34,7 +36,11 @@ const ContactSection = () => {
       setSubject("");
       setMessage("");
     } catch (error) {
-      setStatus({ type: "error", text: "Something went wrong. Please try again." });
+      console.error("Email send error:", error);
+      setStatus({ 
+        type: "error", 
+        text: error.message || "Something went wrong. Please try again." 
+      });
     } finally {
       setIsSubmitting(false);
     }
