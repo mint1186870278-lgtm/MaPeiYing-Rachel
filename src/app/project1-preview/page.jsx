@@ -265,63 +265,6 @@ export default function Project1Preview() {
               </div>
           </div>
 
-          {/* Videos Section */}
-          <div className="space-y-8 mt-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white">
-              Project Videos
-            </h2>
-
-            {/* Video 1 */}
-            <div className="space-y-4">
-              <h3 className="text-2xl md:text-3xl font-semibold text-white">
-                Video 1
-              </h3>
-              <div className="bg-[#181818] rounded-xl overflow-hidden shadow-2xl">
-                <video
-                  controls
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="auto"
-                  className="w-full h-auto"
-                  style={{ maxHeight: "80vh" }}
-                >
-                  <source 
-                    src="https://res.cloudinary.com/dyikpkc5k/video/upload/v1765355721/video1_wvmuxv.mp4" 
-                    type="video/mp4" 
-                  />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            </div>
-
-            {/* Video 2 */}
-            <div className="space-y-4">
-              <h3 className="text-2xl md:text-3xl font-semibold text-white">
-                Video 2
-              </h3>
-              <div className="bg-[#181818] rounded-xl overflow-hidden shadow-2xl">
-                <video
-                  controls
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="auto"
-                  className="w-full h-auto"
-                  style={{ maxHeight: "80vh" }}
-                >
-                  <source 
-                    src="https://res.cloudinary.com/dyikpkc5k/video/upload/v1765351336/video2_e8oiyi.mp4" 
-                    type="video/mp4" 
-                  />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            </div>
-          </div>
-
           {/* Project Navigation */}
           <ProjectNavigation currentProjectPath="/project1-preview" />
         </div>
