@@ -80,6 +80,7 @@ export default function Project1Preview() {
                   className="w-full h-auto object-cover"
                   alt="Causes of the Problem"
                   quality={85}
+                  priority
                   sizes="(max-width: 768px) 100vw, 1200px"
                 />
               </div>
@@ -103,6 +104,7 @@ export default function Project1Preview() {
                   className="w-full h-auto object-cover"
                   alt="Genealogical Tree"
                   quality={85}
+                  priority
                   sizes="(max-width: 768px) 100vw, 1200px"
                 />
               </div>
