@@ -2,10 +2,12 @@
 
 ## 本地开发环境
 
-`.env.local` 文件已经配置好了，包含：
+创建 `.env.local` 文件（如果还没有），添加：
 ```
-RESEND_API_KEY=re_LEKPn4tV_7aPjKcwaUBTPLi28v5MWxr8A
+RESEND_API_KEY=your_resend_api_key_here
 ```
+
+⚠️ **重要**：`.env.local` 文件不会被推送到 GitHub（已在 .gitignore 中），但请确保不要在任何代码文件中硬编码 API Key。
 
 ## Vercel 部署环境变量配置
 
@@ -25,7 +27,7 @@ RESEND_API_KEY=re_LEKPn4tV_7aPjKcwaUBTPLi28v5MWxr8A
 3. **添加环境变量**
    - 点击 "Add New"（添加新变量）
    - **Key（键）**: `RESEND_API_KEY`
-   - **Value（值）**: `re_LEKPn4tV_7aPjKcwaUBTPLi28v5MWxr8A`
+   - **Value（值）**: 你的 Resend API Key（从 Resend dashboard 获取）
    - **Environment（环境）**: 选择所有环境（Production, Preview, Development）
    - 点击 "Save"（保存）
 
@@ -41,10 +43,12 @@ RESEND_API_KEY=re_LEKPn4tV_7aPjKcwaUBTPLi28v5MWxr8A
 3. 填写表单并发送测试邮件
 4. 检查你的邮箱 `mint1186870278@gmail.com` 是否收到邮件
 
-## 注意事项
+## ⚠️ 安全注意事项
 
+- **永远不要**在代码文件中硬编码 API Key
 - `.env.local` 文件不会被推送到 GitHub（已在 .gitignore 中）
 - 环境变量在 Vercel 上是加密存储的，很安全
+- 如果 API Key 泄露，立即在 Resend dashboard 中撤销并生成新的
 - 如果邮件发送失败，检查 Vercel 的 Function Logs 查看错误信息
 
 ## 故障排查
