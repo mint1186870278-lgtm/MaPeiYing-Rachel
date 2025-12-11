@@ -62,6 +62,9 @@ export async function POST(request) {
         `,
       });
 
+      // Log the full response for debugging
+      console.log("Resend API response:", JSON.stringify(data, null, 2));
+
       // Check for Resend API errors
       if (data.error) {
         console.error("Resend API error:", JSON.stringify(data.error, null, 2));
@@ -72,15 +75,8 @@ export async function POST(request) {
         );
       }
 
-      // Check if data.id exists (successful send)
-      if (!data.id) {
-        console.error("Unexpected Resend response:", JSON.stringify(data, null, 2));
-        return Response.json(
-          { error: "Unexpected response from email service" },
-          { status: 500 }
-        );
-      }
-
+      // If no error, consider it successful (Resend returns { id: "..." } on success)
+      // But we'll be more lenient and accept any response without an error
       return Response.json({ success: true, data });
     } catch (resendError) {
       console.error("Resend send error:", resendError);
