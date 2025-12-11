@@ -45,35 +45,58 @@ export async function POST(request) {
       return text.replace(/[&<>"']/g, m => map[m]);
     };
 
-    const data = await resend.emails.send({
-      from: "Rachel <mint1186870278@gmail.com>",
-      to: "mint1186870278@gmail.com",
-      subject: `New message from ${name || email}`,
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #333;">New Contact Form Message</h2>
-          <p><strong>From:</strong> ${escapeHtml(email)}</p>
-          ${name ? `<p><strong>Name:</strong> ${escapeHtml(name)}</p>` : ''}
-          <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;">
-          <p><strong>Message:</strong></p>
-          <p style="white-space: pre-wrap;">${escapeHtml(message)}</p>
-        </div>
-      `,
-    });
+    try {
+      const data = await resend.emails.send({
+        from: "Rachel <mint1186870278@gmail.com>",
+        to: "mint1186870278@gmail.com",
+        subject: `New message from ${name || email}`,
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #333;">New Contact Form Message</h2>
+            <p><strong>From:</strong> ${escapeHtml(email)}</p>
+            ${name ? `<p><strong>Name:</strong> ${escapeHtml(name)}</p>` : ''}
+            <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;">
+            <p><strong>Message:</strong></p>
+            <p style="white-space: pre-wrap;">${escapeHtml(message)}</p>
+          </div>
+        `,
+      });
 
-    if (data.error) {
-      console.error("Resend API error:", data.error);
-      return Response.json(
-        { error: "Failed to send email. Please try again later." },
-        { status: 500 }
-      );
+      // Check for Resend API errors
+      if (data.error) {
+        console.error("Resend API error:", JSON.stringify(data.error, null, 2));
+        const errorMessage = data.error.message || JSON.stringify(data.error);
+        return Response.json(
+          { error: `Resend API error: ${errorMessage}` },
+          { status: 500 }
+        );
+      }
+
+      // Check if data.id exists (successful send)
+      if (!data.id) {
+        console.error("Unexpected Resend response:", JSON.stringify(data, null, 2));
+        return Response.json(
+          { error: "Unexpected response from email service" },
+          { status: 500 }
+        );
+      }
+
+      return Response.json({ success: true, data });
+    } catch (resendError) {
+      console.error("Resend send error:", resendError);
+      throw resendError;
     }
-
-    return Response.json({ success: true, data });
   } catch (error) {
     console.error("Email send error:", error);
+    console.error("Error stack:", error.stack);
+    const errorMessage = error.message || "Unknown error occurred";
+    const errorDetails = error.response?.data || error.cause || {};
+    
     return Response.json(
-      { error: error.message || "Failed to send email. Please try again later." },
+      { 
+        error: `Failed to send email: ${errorMessage}`,
+        details: process.env.NODE_ENV === 'development' ? errorDetails : undefined
+      },
       { status: 500 }
     );
   }
