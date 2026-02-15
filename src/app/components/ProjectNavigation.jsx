@@ -42,7 +42,7 @@ const ProjectNavigation = ({ currentProjectPath }) => {
   return (
     <div className="mt-8 md:mt-24">
       {/* Full-width separator line spanning the page */}
-      <div className="w-screen border-t border-white/20 relative left-1/2 -translate-x-1/2" />
+      <div className="w-full border-t border-white/20" />
 
       <div className="max-w-6xl mx-auto px-4 md:px-12">
         <div className="pt-8 md:pt-16">

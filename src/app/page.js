@@ -19,7 +19,9 @@ export default function Home() {
         const targetId = hash.substring(1); // 移除 # 号
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // For 'about' and 'contact' sections, center them. For others, align to top.
+          const blockPosition = (targetId === 'about' || targetId === 'contact') ? 'center' : 'start';
+          targetElement.scrollIntoView({ behavior: 'smooth', block: blockPosition });
         }
       }, 100);
     }

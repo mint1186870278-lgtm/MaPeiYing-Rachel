@@ -11,7 +11,7 @@ export default function Project3Preview() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-[#121212]">
+    <div className="min-h-screen bg-[#121212] overflow-x-hidden">
       <Navbar />
       <div className="w-full mx-auto px-4 md:px-12 py-4 pt-20">
         <div className="max-w-6xl mx-auto">

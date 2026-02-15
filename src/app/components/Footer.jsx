@@ -7,9 +7,9 @@ const Footer = () => {
   return (
     <footer className="relative mt-8 md:mt-12 w-full">
       {/* Top border line extending full width */}
-      <div className="w-screen border-t border-white/20 relative left-1/2 -translate-x-1/2 z-10"></div>
+      <div className="w-full border-t border-white/20 z-10"></div>
       
-      <div className="relative flex items-center justify-between w-screen px-4 md:px-12 pt-8 pb-8 z-10 left-1/2 -translate-x-1/2">
+      <div className="flex items-center justify-between w-full px-4 md:px-12 pt-8 pb-8 z-10">
           {/* Left: LOGO */}
           <Logo />
           

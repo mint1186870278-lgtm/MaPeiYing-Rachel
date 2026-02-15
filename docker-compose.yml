@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  nextjs-portfolio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - RESEND_API_KEY=${RESEND_API_KEY}
+    restart: unless-stopped
+    volumes:
+      # 如果需要持久化数据，可以添加 volumes
+      - ./public:/app/public:ro
+    networks:
+      - portfolio-network
+
+networks:
+  portfolio-network:
+    driver: bridge
+

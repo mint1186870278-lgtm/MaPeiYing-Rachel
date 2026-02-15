@@ -10,7 +10,7 @@ export default function Video2Preview() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-[#121212]">
+    <div className="min-h-screen bg-[#121212] overflow-x-hidden">
       <Navbar />
       <div className="flex items-center justify-center p-4 pt-20">
         <div className="w-full max-w-6xl">

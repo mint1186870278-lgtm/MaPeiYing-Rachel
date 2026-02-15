@@ -30,7 +30,7 @@ const Navbar = () => {
         scroll > 50 ? "bg-black/90" : "bg-black/30"
       }`}
     >
-      <div className="flex items-center justify-between w-screen px-4 md:px-12 py-4 relative left-1/2 -translate-x-1/2">
+      <div className="flex items-center justify-between w-full px-4 md:px-12 py-4">
         {/* LOGO */}
         <Logo />
 

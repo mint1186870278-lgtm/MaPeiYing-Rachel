@@ -17,7 +17,7 @@ const HeroSection = () => {
 
   return (
     <section className="pt-8 md:pt-8 md:min-h-[calc(100vh-4rem)] md:flex md:items-center md:overflow-x-hidden">
-      <div className="w-full md:w-screen px-4 md:px-12 md:relative md:left-1/2 md:-translate-x-1/2">
+      <div className="w-full px-4 md:px-12">
         <div className="grid grid-cols-1 sm:grid-cols-12 max-w-7xl md:max-w-none md:mx-0 md:ml-1">
           <div className="col-span-7 place-self-center text-center sm:text-left md:place-self-start md:text-left">
             <h1 

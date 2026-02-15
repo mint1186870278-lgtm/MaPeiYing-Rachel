@@ -47,7 +47,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-16 relative overflow-hidden">
+    <section id="contact" className="py-16 relative overflow-hidden scroll-mt-24">
       <div className="relative w-full grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-12 items-start">
         {/* Left copy */}
         <div className="space-y-6">

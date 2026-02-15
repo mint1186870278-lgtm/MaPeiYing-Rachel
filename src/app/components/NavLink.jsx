@@ -25,7 +25,9 @@ const NavLink = ({ href, title }) => {
       const targetElement = document.getElementById(targetId);
       
       if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // For 'about' and 'contact' sections, center them. For others (like 'projects'), align to top.
+        const blockPosition = (targetId === 'about' || targetId === 'contact') ? 'center' : 'start';
+        targetElement.scrollIntoView({ behavior: 'smooth', block: blockPosition });
         // 更新URL但不触发滚动
         window.history.pushState(null, '', href);
       } else if (pathname !== path) {
