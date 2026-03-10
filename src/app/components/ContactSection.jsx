@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const ContactSection = () => {
+  const { t } = useLanguage();
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
@@ -31,7 +33,7 @@ const ContactSection = () => {
         throw new Error(data.error || "Failed to send");
       }
 
-      setStatus({ type: "success", text: "Message sent successfully." });
+      setStatus({ type: "success", text: t("contact.success") });
       setEmail("");
       setSubject("");
       setMessage("");
@@ -52,11 +54,9 @@ const ContactSection = () => {
         {/* Left copy */}
         <div className="space-y-6">
           <div className="space-y-4">
-            <p className="text-2xl font-semibold text-white">Let&apos;s Connect</p>
+            <p className="text-2xl font-semibold text-white">{t("contact.title")}</p>
             <p className="text-lg leading-8 text-[#c2c2c6] max-w-xl">
-              I&apos;m currently looking for new opportunities, my inbox is always open.
-              Whether you have a question or just want to say hi, I&apos;ll try my best
-              to get back to you!
+              {t("contact.intro")}
             </p>
           </div>
           <div className="flex items-center gap-4">
@@ -90,13 +90,13 @@ const ContactSection = () => {
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="space-y-2">
               <label className="text-sm font-semibold text-white" htmlFor="email">
-                Your email
+                {t("contact.emailLabel")}
               </label>
               <input
                 id="email"
                 type="email"
                 required
-                placeholder="Jason@google.com"
+                placeholder={t("contact.emailPlaceholder")}
                 className="w-full rounded-lg bg-[#0f0f12] border border-[#1f1f24] px-4 py-3 text-base text-white placeholder:text-[#7f8186] focus:border-[#a94af8] focus:outline-none"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -105,12 +105,12 @@ const ContactSection = () => {
 
             <div className="space-y-2">
               <label className="text-sm font-semibold text-white" htmlFor="subject">
-                Subject
+                {t("contact.subjectLabel")}
               </label>
               <input
                 id="subject"
                 type="text"
-                placeholder="Just saying hi"
+                placeholder={t("contact.subjectPlaceholder")}
                 className="w-full rounded-lg bg-[#0f0f12] border border-[#1f1f24] px-4 py-3 text-base text-white placeholder:text-[#7f8186] focus:border-[#a94af8] focus:outline-none"
                 value={subject}
                 onChange={(e) => setSubject(e.target.value)}
@@ -147,7 +147,7 @@ const ContactSection = () => {
               disabled={isSubmitting}
               className="w-full rounded-lg bg-[#a94af8] hover:bg-[#9b40e8] text-white font-semibold py-3 text-base transition-colors disabled:opacity-70"
             >
-              {isSubmitting ? "Sending..." : "Send Message"}
+              {isSubmitting ? t("contact.sending") : t("contact.send")}
             </button>
           </form>
         </div>

@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "roles": ["Rachel", "Architect", "UI/UX Designer", "Visual Designer"],
+    "tagline": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptuous.",
+    "hireMe": "Hire me",
+    "downloadCV": "Download CV",
+    "cvUrl": "/cv/Peiying_Ma_CV.pdf",
+    "cvFilename": "Peiying_Ma_CV.pdf"
+  },
+  "about": {
+    "title": "About me",
+    "bio": "As a multidisciplinary designer with an architecture background and an advanced Master's degree, I am committed to translating complex architectural and product concepts into clear, user-centric visual solutions, spanning sustainable design, UI/UX iteration, and visual communication. I am proficient in multi-domain tools like Figma, Adobe Creative Suite, and Rhino/AutoCAD, and excel at leveraging data analysis to drive design decisions and achieve measurable results. I am a fast learner and a proactive team player, eager to create impactful, smooth-experience products within cross-functional teams.",
+    "tabs": {
+      "skills": "Skills",
+      "education": "Education",
+      "certification": "Certification"
+    },
+    "skills": ["Node.js", "Express", "React", "Github", "Adobe Photoshop"],
+    "education": ["Master of Science in Advanced Architectural Design", "The University of Hong Kong"],
+    "certification": ["AWS Cloud Practitioner", "Google Professional Cloud Developer"]
+  },
+  "projects": {
+    "title": "My Projects",
+    "tags": {
+      "all": "All",
+      "uiux": "UI/UX",
+      "architecture": "Architecture",
+      "video": "Video"
+    },
+    "items": {
+      "UIProject1": {
+        "title": "FocusPal - Time Management App",
+        "description": "UI/UX design project showcasing user interface and experience design."
+      },
+      "UIProject2": {
+        "title": "SkillSwap - Skill Sharing Platform",
+        "description": "UI/UX design project showcasing user interface and experience design."
+      },
+      "UIProject3": {
+        "title": "LegiCheck",
+        "description": "UI/UX design project showcasing user interface and experience design."
+      },
+      "Project1": {
+        "title": "RIVIVE: RESTORING LIFE TO OUR BROKEN RIVER",
+        "description": "The Rivive landscape plan aims to restore a damaged river ecosystem for the community's benefit through promoting biodiversity and improving water quality."
+      },
+      "Project2": {
+        "title": "RIVIVE: COMMUNITY CONFLUENTIA: A TIDAL PARK FOR NATURE AND",
+        "description": "The Confluentia tidal park proposal aims to create a sustainable public space at the meeting point of two rivers, providing wildlife habitat and recreation opportunities for the local community."
+      },
+      "Project3": {
+        "title": "RIVIVE: FRESH LINK",
+        "description": "The vegetable supply station aims to provide fresh produce to an urban village community and create a new relationship between people and vegetables, while also offering part-time job opportunities for college students."
+      },
+      "Project4": {
+        "title": "BETWEEN TULOUS",
+        "description": "A year-long project by HKU's Master of Advanced Architectural Design students, exploring interventions in historic tulou architecture through research, fabrication, and on-site construction."
+      },
+      "Project5": {
+        "title": "SO DIFFICULTY TO BEND",
+        "description": "In the April 2025 Shenzhen workshop, we explored curved long-span structures with limited materials, documenting the process through photography and video to capture spatial and structural exploration."
+      }
+    }
+  },
+  "contact": {
+    "title": "Let's Connect",
+    "intro": "I'm currently looking for new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!",
+    "emailLabel": "Your email",
+    "subjectLabel": "Subject",
+    "messageLabel": "Message",
+    "emailPlaceholder": "Jason@google.com",
+    "subjectPlaceholder": "Just saying hi",
+    "messagePlaceholder": "Let's talk about...",
+    "success": "Message sent successfully.",
+    "error": "Something went wrong. Please try again.",
+    "sending": "Sending...",
+    "send": "Send Message"
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  },
+  "logo": {
+    "suffix": "achel"
+  }
+}

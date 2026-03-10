@@ -2,9 +2,13 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { TypeAnimation } from 'react-type-animation';
+import { useLanguage } from "@/context/LanguageContext";
 
 const HeroSection = () => {
   const [isDesktop, setIsDesktop] = useState(false);
+  const { t, locale } = useLanguage();
+  const roles = t("hero.roles");
+  const rolesArray = Array.isArray(roles) ? roles : ["Rachel", "Architect", "UI/UX Designer", "Visual Designer"];
 
   useEffect(() => {
     const checkDesktop = () => {
@@ -14,6 +18,8 @@ const HeroSection = () => {
     window.addEventListener('resize', checkDesktop);
     return () => window.removeEventListener('resize', checkDesktop);
   }, []);
+
+  const typeSequence = rolesArray.flatMap((role, i) => [role, 1000]).slice(0, -1);
 
   return (
     <section className="pt-8 md:pt-8 md:min-h-[calc(100vh-4rem)] md:flex md:items-center md:overflow-x-hidden">
@@ -25,21 +31,13 @@ const HeroSection = () => {
               style={isDesktop ? { fontSize: '5rem', lineHeight: '1.2' } : {}}
             >
               <span className="text-transparent bg-clip-text bg-gradient-to-br from-purple-400 to-pink-600">
-                Hello, I'm {""}
+                {t("hero.greeting")} {""}
               </span>
               <br></br>
               <span style={isDesktop ? { display: 'block', marginTop: '3.5rem' } : {}}>
                 <TypeAnimation
-                  sequence={[
-                    'Rachel',
-                    1000,
-                    'Architect',
-                    1000,
-                    'UI/UX Designer',
-                    1000,
-                    'Visual Designer',
-                    1000
-                  ]}
+                  key={locale}
+                  sequence={[...typeSequence, 1000]}
                   wrapper="span"
                   speed={50}
                   repeat={Infinity}
@@ -47,31 +45,29 @@ const HeroSection = () => {
               </span>
             </h1>
             <p className="text-[#ADB7BE] text-base sm:text-lg lg:text-xl md:text-2xl mb-6 md:mb-8">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptuous.
+              {t("hero.tagline")}
             </p>
             <div>
               <button 
                 onClick={() => {
-                  // 如果在主页，直接滚动到contact section
                   if (window.location.pathname === '/') {
                     const contactSection = document.getElementById('contact');
                     if (contactSection) {
                       contactSection.scrollIntoView({ behavior: 'smooth' });
                     }
                   } else {
-                    // 如果不在主页，先导航到主页的contact section
                     window.location.href = '/#contact';
                   }
                 }}
                 className="px-6 md:px-8 py-3 md:py-4 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-200 text-white md:text-lg"
               >
-                Hire me
+                {t("hero.hireMe")}
               </button>
               <button 
                 onClick={() => {
                   const link = document.createElement("a");
-                  link.href = "/cv/Peiying_Ma_CV.pdf";
-                  link.download = "Peiying_Ma_CV.pdf";
+                  link.href = t("hero.cvUrl");
+                  link.download = t("hero.cvFilename");
                   document.body.appendChild(link);
                   link.click();
                   document.body.removeChild(link);
@@ -79,7 +75,7 @@ const HeroSection = () => {
                 className="px-1 py-1 w-full sm:w-fit bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-full bg-transparent hover:bg-slate-800 text-white mt-3"
               >
                 <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 md:px-6 py-2 md:py-3 md:text-lg">
-                  Download CV
+                  {t("hero.downloadCV")}
                 </span>
               </button>
             </div>

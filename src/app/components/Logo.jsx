@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 
 const Logo = ({ className = "" }) => {
+  const { t } = useLanguage();
   return (
     <Link
       href="/"
@@ -26,7 +28,7 @@ const Logo = ({ className = "" }) => {
         <circle cx="20" cy="14" r="1.5" fill="currentColor" />
       </svg>
       <span className="text-sm md:text-base font-semibold tracking-normal uppercase -ml-1.5 text-[#ADB7BE]">
-        achel
+        {t("logo.suffix")}
       </span>
     </Link>
   );

@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "about": "关于",
+    "projects": "项目",
+    "contact": "联系"
+  },
+  "hero": {
+    "greeting": "你好，我是",
+    "roles": ["Rachel", "建筑师", "UI/UX 设计师", "视觉设计师"],
+    "tagline": "跨领域设计师，致力于将复杂的建筑与产品概念转化为清晰、以用户为中心的视觉方案。",
+    "hireMe": "联系我",
+    "downloadCV": "下载简历",
+    "cvUrl": "/cv/Peiying_Ma_CV_ZH.pdf",
+    "cvFilename": "马佩莹_简历.pdf"
+  },
+  "about": {
+    "title": "关于我",
+    "bio": "作为一名具有建筑背景和高级硕士学位的跨领域设计师，我致力于将复杂的建筑与产品概念转化为清晰、以用户为中心的视觉方案，涵盖可持续设计、UI/UX 迭代和视觉传达。我精通 Figma、Adobe Creative Suite、Rhino/AutoCAD 等多领域工具，善于运用数据分析驱动设计决策并取得可衡量的成果。我学习能力强、积极主动，渴望在跨职能团队中创造有影响力、体验流畅的产品。",
+    "tabs": {
+      "skills": "技能",
+      "education": "教育",
+      "certification": "认证"
+    },
+    "skills": ["Node.js", "Express", "React", "Github", "Adobe Photoshop"],
+    "education": ["高级建筑设计硕士", "香港大学"],
+    "certification": ["AWS Cloud Practitioner", "Google Professional Cloud Developer"]
+  },
+  "projects": {
+    "title": "我的项目",
+    "tags": {
+      "all": "全部",
+      "uiux": "UI/UX",
+      "architecture": "建筑",
+      "video": "视频"
+    },
+    "items": {
+      "UIProject1": {
+        "title": "FocusPal - 时间管理应用",
+        "description": "UI/UX 设计项目，展示用户界面与体验设计。"
+      },
+      "UIProject2": {
+        "title": "SkillSwap - 技能共享平台",
+        "description": "UI/UX 设计项目，展示用户界面与体验设计。"
+      },
+      "UIProject3": {
+        "title": "LegiCheck",
+        "description": "UI/UX 设计项目，展示用户界面与体验设计。"
+      },
+      "Project1": {
+        "title": "RIVIVE: 为受损河流重焕生机",
+        "description": "Rivive 景观规划旨在通过促进生物多样性和改善水质，为社区恢复受损的河流生态系统。"
+      },
+      "Project2": {
+        "title": "RIVIVE: CONFLUENTIA 社区潮汐公园",
+        "description": "Confluentia 潮汐公园提案旨在在两河交汇处打造可持续公共空间，为当地社区提供野生动物栖息地与休闲场所。"
+      },
+      "Project3": {
+        "title": "RIVIVE: FRESH LINK",
+        "description": "蔬菜供应站旨在为城中村社区提供新鲜农产品，建立人与蔬菜的新关系，同时为大学生提供兼职机会。"
+      },
+      "Project4": {
+        "title": "土楼之间",
+        "description": "港大高级建筑设计硕士为期一年的项目，通过研究、制作与现场建造探索历史土楼建筑的介入设计。"
+      },
+      "Project5": {
+        "title": "弯折之难",
+        "description": "2025 年 4 月深圳工作坊中，我们探索了有限材料下的曲线大跨度结构，通过摄影与视频记录空间与结构的探索过程。"
+      }
+    }
+  },
+  "contact": {
+    "title": "联系我",
+    "intro": "我目前正在寻找新的机会，欢迎随时联系。无论您有问题或只是想打个招呼，我都会尽力回复！",
+    "emailLabel": "您的邮箱",
+    "subjectLabel": "主题",
+    "messageLabel": "留言",
+    "emailPlaceholder": "example@email.com",
+    "subjectPlaceholder": "打个招呼",
+    "messagePlaceholder": "聊聊吧...",
+    "success": "消息发送成功。",
+    "error": "发送失败，请稍后再试。",
+    "sending": "发送中...",
+    "send": "发送消息"
+  },
+  "footer": {
+    "rights": "版权所有。"
+  },
+  "logo": {
+    "suffix": "achel"
+  }
+}
