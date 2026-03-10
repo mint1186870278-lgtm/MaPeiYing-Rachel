@@ -5,6 +5,39 @@ import ProjectsTag from "./ProjectsTag";
 
 const projectsData = [
   {
+    id: "UIProject1",
+    title: "FocusPal - Time Management App",
+    description: "UI/UX design project showcasing user interface and experience design.",
+    imgUrl: "/ui project1/ui project-1.png",
+    blurImgUrl: "/ui project1/ui project-1.png",
+    codeLink: "",
+    previewLink: null,
+    projectLink: "https://focuspal-ten.vercel.app/", // TODO: 替换为项目网页链接
+    tag: ["All", "UI/UX"]
+  },
+  {
+    id: "UIProject2",
+    title: "SkillSwap - Skill Sharing Platform",
+    description: "UI/UX design project showcasing user interface and experience design.",
+    imgUrl: "/ui project2/ui project-2.png",
+    blurImgUrl: "/ui project2/ui project-2.png",
+    codeLink: "",
+    previewLink: null,
+    projectLink: "https://www.skillswap.lat/", // TODO: 替换为项目网页链接
+    tag: ["All", "UI/UX"]
+  },
+  {
+    id: "UIProject3",
+    title: "LegiCheck",
+    description: "UI/UX design project showcasing user interface and experience design.",
+    imgUrl: "/ui project3/ui project-3.png",
+    blurImgUrl: "/ui project3/ui project-3.png",
+    codeLink: "",
+    previewLink: null,
+    projectLink: "https://legicheck.vercel.app/", // TODO: 替换为项目网页链接
+    tag: ["All", "UI/UX"]
+  },
+  {
     id: "Project1",
     title: "RIVIVE: RESTORING LIFE TO OUR BROKEN RIVER",
     description: "The Rivive landscape plan aims to restore a damaged river ecosystem for the community's benefit through promoting biodiversity and improving water quality.",
@@ -76,6 +109,7 @@ const ProjectsSection = () => {
       {/* 按钮组 */}
       <div className="flex justify-center items-center gap-2 py-6">
         <ProjectsTag onClick={handleTagChange} name="All" isSelected={tag === "All"} />
+        <ProjectsTag onClick={handleTagChange} name="UI/UX" isSelected={tag === "UI/UX"} />
         <ProjectsTag onClick={handleTagChange} name="Architecture" isSelected={tag === "Architecture"} />
         <ProjectsTag onClick={handleTagChange} name="Video" isSelected={tag === "Video"} />
       </div>
@@ -91,6 +125,7 @@ const ProjectsSection = () => {
             blurImgUrl={project.blurImgUrl}
             codeLink={project.codeLink}
             previewLink={project.previewLink}
+            projectLink={project.projectLink}
             priority={index < 3}
           />
         ))}
