@@ -11,7 +11,7 @@ export default function Project1Preview() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-[#121212] overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navbar />
 
       <div className="w-full mx-auto px-4 md:px-12 py-4 pt-20">
@@ -20,7 +20,7 @@ export default function Project1Preview() {
           {/* Back button */}
           <button
             onClick={() => router.back()}
-            className="mb-6 flex items-center gap-2 text-white hover:text-[#ADB7BE] transition-colors"
+            className="mb-6 flex items-center gap-2 text-neutral-800 hover:text-neutral-600 dark:text-white dark:hover:text-[#ADB7BE] transition-colors"
           >
             <ArrowLeftIcon className="h-5 w-5" />
             <span>Back to Projects</span>
@@ -28,7 +28,7 @@ export default function Project1Preview() {
 
           {/* Project Header */}
           <div className="mb-8">
-            <p className="text-lg text-[#ADB7BE]">
+            <p className="text-lg text-neutral-600 dark:text-[#ADB7BE]">
               The Rivive landscape plan aims to restore a damaged river ecosystem
               for the community's benefit through promoting biodiversity and
               improving water quality.
@@ -36,15 +36,15 @@ export default function Project1Preview() {
           </div>
 
           {/* Project Content Area */}
-          <div className="text-white space-y-8">
+          <div className="text-neutral-900 dark:text-white space-y-8">
 
             {/* PROBLEM & CURRENT SITUATION ANALYSIS */}
             <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white">
                 Problem & current situation analysis
               </h2>
 
-              <p className="text-lg text-[#ADB7BE] leading-relaxed">
+              <p className="text-lg text-neutral-600 dark:text-[#ADB7BE] leading-relaxed">
                 The Qiu River is in the middle of the Yellow River and on the left bank of the central Shan-Shaan Region. It is a first-class tributary of the Yellow River, with a 1989km2 basin area. Compared with the Yangtze River which has an average annual precipitation (979.5 billion m³), there is a huge gap.
               </p>
 
@@ -64,11 +64,11 @@ export default function Project1Preview() {
 
             {/* CAUSES OF THE PROBLEM */}
             <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white">
                 Causes of the problem
               </h2>
 
-              <p className="text-lg text-[#ADB7BE] leading-relaxed">
+              <p className="text-lg text-neutral-600 dark:text-[#ADB7BE] leading-relaxed">
                 These three maps show the changes in precipitation, river flow, vegetation type and cover, settlements, population and infrastructure in the Qiu River basin from 1950 to the present.
               </p>
 
@@ -88,11 +88,11 @@ export default function Project1Preview() {
 
             {/* GENEALOGICAL TREE */}
             <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white">
                 Genealogical tree
               </h2>
 
-              <p className="text-lg text-[#ADB7BE] leading-relaxed">
+              <p className="text-lg text-neutral-600 dark:text-[#ADB7BE] leading-relaxed">
                 This diagram shows my thinking process for this project from elements to problems to solution strategies, and it also shows what really caused the river to be in its current bad condition.
               </p>
 
@@ -112,18 +112,18 @@ export default function Project1Preview() {
 
             {/* Master Strategies */}
             <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white">
                 Master Strategies
               </h2>
             </div>
 
             {/* Strategy 1 */}
             <div className="space-y-4">
-              <h3 className="text-2xl md:text-3xl font-semibold text-white">
+              <h3 className="text-2xl md:text-3xl font-semibold text-neutral-900 dark:text-white">
                 Strategy 1 — Dredging of Silt
               </h3>
 
-              <p className="text-lg text-[#ADB7BE] leading-relaxed">
+              <p className="text-lg text-neutral-600 dark:text-[#ADB7BE] leading-relaxed">
                 This strategy is mainly aimed at the initial restoration of the mountain and river ecosystems.
               </p>
 
@@ -142,18 +142,18 @@ export default function Project1Preview() {
 
             {/* Strategy 2 */}
             <div className="space-y-4">
-              <h3 className="text-2xl md:text-3xl font-semibold text-white">
+              <h3 className="text-2xl md:text-3xl font-semibold text-neutral-900 dark:text-white">
                 Strategy 2 — Softening of Riverbanks
               </h3>
 
-              <p className="text-lg text-[#ADB7BE] leading-relaxed">
+              <p className="text-lg text-neutral-600 dark:text-[#ADB7BE] leading-relaxed">
                 This diagram shows the specific problems within the river and the corresponding strategies.
               </p>
             </div>
 
             {/* Strategy 2.1 */}
             <div className="ml-6 space-y-4">
-              <h4 className="text-xl md:text-2xl font-medium text-white">
+              <h4 className="text-xl md:text-2xl font-medium text-neutral-900 dark:text-white">
                 2.1 Softening of Riverbanks
               </h4>
 
@@ -186,10 +186,10 @@ export default function Project1Preview() {
 
             {/* Strategy 2.2 */}
             <div className="ml-6 space-y-4">
-              <h4 className="text-xl md:text-2xl font-medium text-white">
+              <h4 className="text-xl md:text-2xl font-medium text-neutral-900 dark:text-white">
                 2.2 Planting Selection & Optimization
               </h4>
-              <p className="text-lg text-[#ADB7BE] leading-relaxed">
+              <p className="text-lg text-neutral-600 dark:text-[#ADB7BE] leading-relaxed">
                 This diagram shows the corresponding profiles and plant species in the steps of riparian revegetation.
               </p>
 
@@ -208,11 +208,11 @@ export default function Project1Preview() {
 
             {/* Strategy 3 */}
             <div className="space-y-4">
-              <h3 className="text-2xl md:text-3xl font-semibold text-white">
+              <h3 className="text-2xl md:text-3xl font-semibold text-neutral-900 dark:text-white">
                 Strategy 3 — Vegetation Remediation
               </h3>
 
-              <p className="text-lg text-[#ADB7BE] leading-relaxed">
+              <p className="text-lg text-neutral-600 dark:text-[#ADB7BE] leading-relaxed">
                 This map focuses on the activities designed for the entire upper and middle reaches of the watershed and the corresponding profiles.
               </p>
 
@@ -247,11 +247,11 @@ export default function Project1Preview() {
 
           {/* Final Visualization */}
           <div className="space-y-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-white">
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white">
               Final Visualization
             </h2>
 
-            <p className="text-lg text-[#ADB7BE] leading-relaxed">
+            <p className="text-lg text-neutral-600 dark:text-[#ADB7BE] leading-relaxed">
 
             </p>
 

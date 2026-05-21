@@ -4,6 +4,10 @@
     "projects": "项目",
     "contact": "联系"
   },
+  "theme": {
+    "useLight": "切换到浅色模式",
+    "useDark": "切换到深色模式"
+  },
   "hero": {
     "greeting": "你好，我是",
     "roles": ["Rachel", "建筑师", "UI/UX 设计师", "视觉设计师"],
@@ -45,6 +49,10 @@
       "UIProject3": {
         "title": "LegiCheck",
         "description": "UI/UX 设计项目，展示用户界面与体验设计。"
+      },
+      "UIProject4": {
+        "title": "意难平 Studio",
+        "description": "互动叙事工作室 UI/UX 项目，支持分支剧情与沉浸式数字体验设计。"
       },
       "Project1": {
         "title": "RIVIVE: 为受损河流重焕生机",

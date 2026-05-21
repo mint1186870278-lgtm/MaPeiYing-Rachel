@@ -41,7 +41,7 @@ const ContactSection = () => {
       console.error("Email send error:", error);
       setStatus({ 
         type: "error", 
-        text: error.message || "Something went wrong. Please try again." 
+        text: error.message || t("contact.error") 
       });
     } finally {
       setIsSubmitting(false);
@@ -54,8 +54,8 @@ const ContactSection = () => {
         {/* Left copy */}
         <div className="space-y-6">
           <div className="space-y-4">
-            <p className="text-2xl font-semibold text-white">{t("contact.title")}</p>
-            <p className="text-lg leading-8 text-[#c2c2c6] max-w-xl">
+            <p className="text-2xl font-semibold text-neutral-900 dark:text-white">{t("contact.title")}</p>
+            <p className="text-lg leading-8 text-neutral-600 dark:text-[#c2c2c6] max-w-xl">
               {t("contact.intro")}
             </p>
           </div>
@@ -64,7 +64,7 @@ const ContactSection = () => {
               href="https://github.com/"
               target="_blank"
               rel="noreferrer"
-              className="h-12 w-12 flex items-center justify-center rounded-full border border-white/70 hover:border-white text-white transition-colors"
+              className="h-12 w-12 flex items-center justify-center rounded-full border border-neutral-400 hover:border-neutral-900 text-neutral-800 dark:border-white/70 dark:hover:border-white dark:text-white transition-colors"
               aria-label="GitHub"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-7 w-7" fill="currentColor">
@@ -75,7 +75,7 @@ const ContactSection = () => {
               href="https://www.linkedin.com/in/peiyingma/"
               target="_blank"
               rel="noreferrer"
-              className="h-12 w-12 flex items-center justify-center rounded-full border border-white/70 hover:border-white text-white transition-colors"
+              className="h-12 w-12 flex items-center justify-center rounded-full border border-neutral-400 hover:border-neutral-900 text-neutral-800 dark:border-white/70 dark:hover:border-white dark:text-white transition-colors"
               aria-label="LinkedIn"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-7 w-7" fill="currentColor">
@@ -89,7 +89,7 @@ const ContactSection = () => {
         <div className="bg-transparent">
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-white" htmlFor="email">
+              <label className="text-sm font-semibold text-neutral-900 dark:text-white" htmlFor="email">
                 {t("contact.emailLabel")}
               </label>
               <input
@@ -97,35 +97,35 @@ const ContactSection = () => {
                 type="email"
                 required
                 placeholder={t("contact.emailPlaceholder")}
-                className="w-full rounded-lg bg-[#0f0f12] border border-[#1f1f24] px-4 py-3 text-base text-white placeholder:text-[#7f8186] focus:border-[#a94af8] focus:outline-none"
+                className="w-full rounded-lg bg-white dark:bg-[#0f0f12] border border-neutral-300 dark:border-[#1f1f24] px-4 py-3 text-base text-neutral-900 dark:text-white placeholder:text-neutral-500 dark:placeholder:text-[#7f8186] focus:border-[#a94af8] focus:outline-none"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-white" htmlFor="subject">
+              <label className="text-sm font-semibold text-neutral-900 dark:text-white" htmlFor="subject">
                 {t("contact.subjectLabel")}
               </label>
               <input
                 id="subject"
                 type="text"
                 placeholder={t("contact.subjectPlaceholder")}
-                className="w-full rounded-lg bg-[#0f0f12] border border-[#1f1f24] px-4 py-3 text-base text-white placeholder:text-[#7f8186] focus:border-[#a94af8] focus:outline-none"
+                className="w-full rounded-lg bg-white dark:bg-[#0f0f12] border border-neutral-300 dark:border-[#1f1f24] px-4 py-3 text-base text-neutral-900 dark:text-white placeholder:text-neutral-500 dark:placeholder:text-[#7f8186] focus:border-[#a94af8] focus:outline-none"
                 value={subject}
                 onChange={(e) => setSubject(e.target.value)}
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-white" htmlFor="message">
-                Message
+              <label className="text-sm font-semibold text-neutral-900 dark:text-white" htmlFor="message">
+                {t("contact.messageLabel")}
               </label>
               <textarea
                 id="message"
                 rows={4}
-                placeholder="Let's talk about..."
-                className="w-full rounded-lg bg-[#0f0f12] border border-[#1f1f24] px-4 py-3 text-base text-white placeholder:text-[#7f8186] focus:border-[#a94af8] focus:outline-none resize-none"
+                placeholder={t("contact.messagePlaceholder")}
+                className="w-full rounded-lg bg-white dark:bg-[#0f0f12] border border-neutral-300 dark:border-[#1f1f24] px-4 py-3 text-base text-neutral-900 dark:text-white placeholder:text-neutral-500 dark:placeholder:text-[#7f8186] focus:border-[#a94af8] focus:outline-none resize-none"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 required

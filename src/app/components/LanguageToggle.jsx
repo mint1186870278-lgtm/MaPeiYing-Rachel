@@ -11,19 +11,19 @@ const LanguageToggle = () => {
         onClick={() => setLocale("en")}
         className={`px-2 py-1 text-sm rounded transition-colors ${
           locale === "en"
-            ? "text-white font-semibold"
-            : "text-[#ADB7BE] hover:text-white"
+            ? "text-neutral-900 font-semibold dark:text-white"
+            : "text-neutral-600 hover:text-neutral-900 dark:text-[#ADB7BE] dark:hover:text-white"
         }`}
       >
         EN
       </button>
-      <span className="text-[#ADB7BE]/50">|</span>
+      <span className="text-neutral-400 dark:text-[#ADB7BE]/50">|</span>
       <button
         onClick={() => setLocale("zh")}
         className={`px-2 py-1 text-sm rounded transition-colors ${
           locale === "zh"
-            ? "text-white font-semibold"
-            : "text-[#ADB7BE] hover:text-white"
+            ? "text-neutral-900 font-semibold dark:text-white"
+            : "text-neutral-600 hover:text-neutral-900 dark:text-[#ADB7BE] dark:hover:text-white"
         }`}
       >
         中文

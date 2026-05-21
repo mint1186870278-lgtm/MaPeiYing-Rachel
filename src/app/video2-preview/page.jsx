@@ -10,21 +10,21 @@ export default function Video2Preview() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-[#121212] overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navbar />
       <div className="flex items-center justify-center p-4 pt-20">
         <div className="w-full max-w-6xl">
           {/* Back button */}
           <button
             onClick={() => router.back()}
-            className="mb-6 flex items-center gap-2 text-white hover:text-[#ADB7BE] transition-colors"
+            className="mb-6 flex items-center gap-2 text-neutral-800 hover:text-neutral-600 dark:text-white dark:hover:text-[#ADB7BE] transition-colors"
           >
             <ArrowLeftIcon className="h-5 w-5" />
             <span>Back to Projects</span>
           </button>
 
         {/* Video player */}
-        <div className="bg-[#181818] rounded-xl overflow-hidden shadow-2xl">
+        <div className="bg-neutral-200 dark:bg-[#181818] rounded-xl overflow-hidden shadow-2xl border border-neutral-300 dark:border-transparent">
           <video
             controls
             autoPlay
@@ -44,9 +44,9 @@ export default function Video2Preview() {
         </div>
 
         {/* Video info */}
-        <div className="mt-6 text-white">
+        <div className="mt-6 text-neutral-900 dark:text-white">
           <h1 className="text-3xl font-bold mb-2">SO DIFFICULTY TO BEND</h1>
-          <p className="text-[#ADB7BE] text-lg">
+          <p className="text-neutral-600 dark:text-[#ADB7BE] text-lg">
             In the April 2025 Shenzhen workshop, we explored curved long-span structures 
             with limited materials, documenting the process through photography and video 
             to capture spatial and structural exploration.

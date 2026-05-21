@@ -39,6 +39,17 @@ const projectsData = [
     tag: ["All", "UI/UX"]
   },
   {
+    id: "UIProject4",
+    titleKey: "UIProject4",
+    descriptionKey: "UIProject4",
+    imgUrl: "/ui project4/ui project-4.png",
+    blurImgUrl: "/ui project4/ui project-4.png",
+    codeLink: "",
+    previewLink: null,
+    projectLink: "https://whatifstudio.saurlax.com/",
+    tag: ["All", "UI/UX"]
+  },
+  {
     id: "Project1",
     titleKey: "Project1",
     descriptionKey: "Project1",
@@ -107,11 +118,11 @@ const ProjectsSection = () => {
 
   return (
     <section id="projects">
-      <h2 className="text-center text-4xl font-bold text-white mb-10">
+      <h2 className="text-center text-4xl font-bold text-neutral-900 dark:text-white mb-10">
         {t("projects.title")}
       </h2>
 
-      <div className="flex justify-center items-center gap-2 py-6">
+      <div className="flex w-full flex-wrap items-center justify-between gap-y-2 gap-x-1 py-6 md:justify-center md:gap-x-3">
         <ProjectsTag onClick={handleTagChange} name={t("projects.tags.all")} value="All" isSelected={tag === "All"} />
         <ProjectsTag onClick={handleTagChange} name={t("projects.tags.uiux")} value="UI/UX" isSelected={tag === "UI/UX"} />
         <ProjectsTag onClick={handleTagChange} name={t("projects.tags.architecture")} value="Architecture" isSelected={tag === "Architecture"} />

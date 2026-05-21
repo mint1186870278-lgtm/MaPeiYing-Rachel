@@ -6,9 +6,9 @@ const TabButton = ({ children, selectTab, active }) => {
   return (
     <button
       onClick={selectTab}
-      className={`relative mr-6 pb-2 text-lg font-semibold transition-all duration-200 hover:text-purple-300`}
+      className="relative pb-2 text-lg font-semibold transition-all duration-200 hover:text-purple-600 dark:hover:text-purple-300"
     >
-      <span className={active ? "text-white" : "text-gray-400"}>
+      <span className={active ? "text-neutral-900 dark:text-white" : "text-neutral-500 dark:text-gray-400"}>
         {children}
       </span>
 

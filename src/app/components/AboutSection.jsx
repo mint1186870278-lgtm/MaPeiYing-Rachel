@@ -48,48 +48,53 @@ const AboutSection = () => {
   };
 
   return (
-    <section id="about" className="text-white min-h-screen flex items-center scroll-mt-24">
-      <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:py-16">
-        <Image 
-          src="/images/about-image.png" 
-          width={500} 
-          height={500}
-          alt="about image"
-          priority
-          quality={85}
-        />
+    <section id="about" className="text-neutral-900 dark:text-white min-h-screen flex items-center scroll-mt-24">
+      <div className="w-full md:grid md:grid-cols-2 gap-8 items-center py-8 sm:py-16 xl:py-16 xl:gap-16">
+        <div className="flex w-full justify-start">
+          <Image
+            src="/images/about-image.png"
+            width={500}
+            height={500}
+            alt="about image"
+            priority
+            quality={85}
+            className="h-auto w-full max-w-md rounded-xl md:max-w-none"
+          />
+        </div>
 
-        <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-          <h2 className="text-4xl font-bold text-white mb-4">{t("about.title")}</h2>
+        <div className="mt-6 flex w-full flex-col items-stretch text-left md:mt-0 md:max-w-none">
+          <h2 className="mb-4 text-4xl font-bold text-neutral-900 dark:text-white">
+            {t("about.title")}
+          </h2>
 
-          <p className="text-base md:text-lg">
+          <p className="max-w-prose text-base text-neutral-700 dark:text-inherit md:text-lg">
             {t("about.bio")}
           </p>
 
-          <div className="flex flex-row justify-start mt-8">
-            <TabButton 
-              selectTab={() => handleTabChange("skills")} 
+          <div className="mt-8 flex w-full flex-row flex-wrap justify-start gap-x-5 gap-y-2 md:gap-x-6">
+            <TabButton
+              selectTab={() => handleTabChange("skills")}
               active={tab === "skills"}
             >
               {t("about.tabs.skills")}
             </TabButton>
 
-            <TabButton 
-              selectTab={() => handleTabChange("education")} 
+            <TabButton
+              selectTab={() => handleTabChange("education")}
               active={tab === "education"}
             >
               {t("about.tabs.education")}
             </TabButton>
 
-            <TabButton 
-              selectTab={() => handleTabChange("certification")} 
+            <TabButton
+              selectTab={() => handleTabChange("certification")}
               active={tab === "certification"}
             >
               {t("about.tabs.certification")}
             </TabButton>
           </div>
 
-          <div className="mt-8">
+          <div className="mt-8 w-full max-w-prose text-left">
             {tabContent[tab]}
           </div>
         </div>

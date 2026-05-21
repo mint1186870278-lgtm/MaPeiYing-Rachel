@@ -8,7 +8,7 @@ const Logo = ({ className = "" }) => {
   return (
     <Link
       href="/"
-      className={`inline-flex items-end gap-0 ${className} text-white hover:text-[#ADB7BE] transition-colors`}
+      className={`inline-flex items-end gap-0 ${className} text-neutral-900 hover:text-neutral-600 dark:text-white dark:hover:text-[#ADB7BE] transition-colors`}
     >
       <svg
         viewBox="0 0 40 40"
@@ -27,7 +27,7 @@ const Logo = ({ className = "" }) => {
         {/* Tech accent - small geometric element */}
         <circle cx="20" cy="14" r="1.5" fill="currentColor" />
       </svg>
-      <span className="text-sm md:text-base font-semibold tracking-normal uppercase -ml-1.5 text-[#ADB7BE]">
+      <span className="text-sm md:text-base font-semibold tracking-normal uppercase -ml-1.5 text-neutral-600 dark:text-[#ADB7BE]">
         {t("logo.suffix")}
       </span>
     </Link>

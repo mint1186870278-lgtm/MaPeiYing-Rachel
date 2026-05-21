@@ -28,7 +28,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex min-h-screen flex-col bg-[#121212] overflow-x-hidden">
+    <main className="flex min-h-screen flex-col bg-background text-foreground overflow-x-hidden">
       <Navbar />
       <div className="w-full mt-16 mx-auto px-12 py-4">
         <HeroSection />

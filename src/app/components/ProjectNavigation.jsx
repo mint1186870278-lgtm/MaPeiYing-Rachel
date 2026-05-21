@@ -32,7 +32,6 @@ const projectsData = [
 ];
 
 const ProjectNavigation = ({ currentProjectPath }) => {
-  // 过滤掉当前项目
   const otherProjects = projectsData.filter(
     (project) => project.previewLink !== currentProjectPath
   );
@@ -41,12 +40,11 @@ const ProjectNavigation = ({ currentProjectPath }) => {
 
   return (
     <div className="mt-8 md:mt-24">
-      {/* Full-width separator line spanning the page */}
-      <div className="w-full border-t border-white/20" />
+      <div className="w-full border-t border-neutral-200 dark:border-white/20" />
 
       <div className="max-w-6xl mx-auto px-4 md:px-12">
         <div className="pt-8 md:pt-16">
-          <p className="text-sm text-[#ADB7BE] mb-6 uppercase tracking-wider font-bold">
+          <p className="text-sm text-neutral-600 dark:text-[#ADB7BE] mb-6 uppercase tracking-wider font-bold">
             Other Projects
           </p>
           <div className="flex flex-wrap gap-3">
@@ -54,7 +52,7 @@ const ProjectNavigation = ({ currentProjectPath }) => {
               <Link
                 key={project.id}
                 href={project.previewLink}
-                className="group flex items-center gap-2 pr-3 py-1.5 text-[#ADB7BE] hover:text-white transition-colors text-sm border-b border-transparent hover:border-[#ADB7BE]"
+                className="group flex items-center gap-2 pr-3 py-1.5 text-neutral-600 hover:text-neutral-900 dark:text-[#ADB7BE] dark:hover:text-white transition-colors text-sm border-b border-transparent hover:border-neutral-400 dark:hover:border-[#ADB7BE]"
               >
                 <span className="truncate max-w-[250px] md:max-w-none">
                   {project.title}
@@ -70,4 +68,3 @@ const ProjectNavigation = ({ currentProjectPath }) => {
 };
 
 export default ProjectNavigation;
-

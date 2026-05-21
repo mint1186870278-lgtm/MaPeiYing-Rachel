@@ -25,26 +25,30 @@ const HeroSection = () => {
     <section className="pt-8 md:pt-8 md:min-h-[calc(100vh-4rem)] md:flex md:items-center md:overflow-x-hidden">
       <div className="w-full px-4 md:px-12">
         <div className="grid grid-cols-1 sm:grid-cols-12 max-w-7xl md:max-w-none md:mx-0 md:ml-1">
-          <div className="col-span-7 place-self-center text-center sm:text-left md:place-self-start md:text-left">
-            <h1 
-              className="text-white mb-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold"
+          <div className="col-span-7 w-full min-w-0 justify-self-stretch text-center sm:text-left md:place-self-start md:text-left">
+            <h1
+              className="w-full min-w-0 text-neutral-900 dark:text-white mb-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold"
               style={isDesktop ? { fontSize: '5rem', lineHeight: '1.2' } : {}}
             >
               <span className="text-transparent bg-clip-text bg-gradient-to-br from-purple-400 to-pink-600">
                 {t("hero.greeting")} {""}
               </span>
               <br></br>
-              <span style={isDesktop ? { display: 'block', marginTop: '3.5rem' } : {}}>
+              <span
+                className="block w-full min-w-0 text-neutral-900 dark:text-white"
+                style={isDesktop ? { display: 'block', marginTop: '3.5rem' } : {}}
+              >
                 <TypeAnimation
                   key={locale}
                   sequence={[...typeSequence, 1000]}
                   wrapper="span"
+                  className="block w-full min-w-0 text-neutral-900 dark:text-white"
                   speed={50}
                   repeat={Infinity}
                 />
               </span>
             </h1>
-            <p className="text-[#ADB7BE] text-base sm:text-lg lg:text-xl md:text-2xl mb-6 md:mb-8">
+            <p className="text-neutral-600 dark:text-[#ADB7BE] text-base sm:text-lg lg:text-xl md:text-2xl mb-6 md:mb-8">
               {t("hero.tagline")}
             </p>
             <div>
@@ -74,14 +78,14 @@ const HeroSection = () => {
                 }}
                 className="px-1 py-1 w-full sm:w-fit bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-full bg-transparent hover:bg-slate-800 text-white mt-3"
               >
-                <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 md:px-6 py-2 md:py-3 md:text-lg">
+                <span className="block bg-white hover:bg-neutral-100 dark:bg-[#121212] dark:hover:bg-slate-800 text-neutral-900 dark:text-white rounded-full px-5 md:px-6 py-2 md:py-3 md:text-lg">
                   {t("hero.downloadCV")}
                 </span>
               </button>
             </div>
           </div>
           <div className="col-span-5 place-self-center mt-4 md:mt-8 lg:mt-0">
-            <div className="rounded-full bg-[#181818] w-[250px] h-[250px] md:w-[350px] md:h-[350px] lg:w-[350px] lg:h-[350px] xl:w-[400px] xl:h-[400px] relative">
+            <div className="rounded-full bg-neutral-200 dark:bg-[#181818] w-[250px] h-[250px] md:w-[350px] md:h-[350px] lg:w-[350px] lg:h-[350px] xl:w-[400px] xl:h-[400px] relative">
               <Image
                 src="/images/hero-image-2.png"
                 alt="hero image"
